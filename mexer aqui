@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Um Gênio Confuso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 10px;
+      background-color: #1e1e1e;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #00bcd4;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #b0bec5;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .thought {
+      background-color: #1e1e1e;
+      border-left: 4px solid #00bcd4;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+    }
+
+    .thought h2 {
+      color: #81d4fa;
+      margin-top: 0;
+    }
+
+    .store {
+      margin-top: 60px;
+    }
+
+    .store h2 {
+      font-size: 2em;
+      color: #00bcd4;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .product {
+      background-color: #1e1e1e;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .product h3 {
+      color: #81d4fa;
+      margin-top: 0;
+    }
+
+    .product p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      margin-top: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-right: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn.pix {
+      background-color: #43a047;
+      color: white;
+    }
+
+    .btn.card {
+      background-color: #3949ab;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #333;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Um Gênio Confuso</h1>
+    <p>"Um mundo sobre outro mundo"</p>
+  </header>
+
+  <main>
+    <div class="thought">
+      <h2>Pensamento do Dia</h2>
+      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+    </div>
+
+    <div class="thought">
+      <h2>Reflexão Aleatória</h2>
+      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+    </div>
+
+    <section class="store">
+      <h2>📚 Loja</h2>
+
+      <div class="product">
+        <h3>Marketing Digital Descomplicado</h3>
+        <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
+        <p><strong>R$ 29,90</strong></p>
+        <div class="buttons">
+          <a href="#" class="btn pix" target="_blank">💸 Pagar via Pix</a>
+          <a href="#" class="btn card" target="_blank">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Criado por Um Gênio Confuso • 2025
+  </footer>
+
+</body>
+</html>
