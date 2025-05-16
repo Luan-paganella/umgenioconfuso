@@ -104,6 +104,10 @@
       color: white;
     }
 
+    .btn:hover {
+      opacity: 0.8;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -140,8 +144,8 @@
         <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
-          <a href="#" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-          <a href="#" class="btn card" target="_blank">💳 Pagar com Cartão</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
         </div>
       </div>
     </section>
