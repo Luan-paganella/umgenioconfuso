@@ -337,3 +337,203 @@
         <h3>Curiosidades dos Milionários</h3>
         <p>Milionários sempre despertaram curiosidade pela forma como vivem, pensam e agem no dia a dia. Muitos acreditam que a fortuna vem só da sorte, mas a realidade mostra que há hábitos, mentalidades e decisões que fazem toda a diferença. Neste livro, você vai conhecer diversas curiosidades e fatos pouco conhecidos sobre milionários que podem te inspirar e ajudar a entender o que realmente faz deles tão bem-sucedidos. Prepare-se para descobrir os segredos por trás das fortunas!</p>
         <p><strong>R
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Um Gênio Confuso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cor-fundo: #000000;
+      --cor-secundaria: #9b59b6;
+      --cor-texto: #e0e0e0;
+      --cor-card: #111;
+      --cor-hover: #c084f5;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    nav {
+      width: 220px;
+      background-color: var(--cor-card);
+      padding: 30px 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100%;
+    }
+
+    nav h1 {
+      color: var(--cor-secundaria);
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    nav p {
+      font-style: italic;
+      color: #b0bec5;
+      margin-bottom: 30px;
+      font-size: 0.95em;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: var(--cor-texto);
+      font-size: 1em;
+      padding: 12px 0;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      color: var(--cor-secundaria);
+    }
+
+    main {
+      margin-left: 220px;
+      padding: 30px 40px;
+      width: calc(100% - 220px);
+      overflow-y: auto;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .thought, .product {
+      background-color: var(--cor-card);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--cor-secundaria);
+    }
+
+    .thought h2, .product h3 {
+      color: var(--cor-hover);
+      margin-top: 0;
+    }
+
+    .buttons {
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-right: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn.pix {
+      background-color: var(--cor-secundaria);
+      color: white;
+    }
+
+    .btn.card {
+      background-color: #6c3483;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        padding: 10px;
+      }
+
+      nav button {
+        flex: 1;
+        text-align: center;
+      }
+
+      main {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div>
+      <h1>Um Gênio Confuso</h1>
+      <p>"Um mundo sobre outro mundo"</p>
+    </div>
+    <button onclick="showSection('pensamentos')">🧠 Pensamentos</button>
+    <button onclick="showSection('loja')">📚 Loja</button>
+  </nav>
+
+  <main>
+    <section id="pensamentos" class="section active">
+      <div class="thought">
+        <h2>Pensamento do Dia</h2>
+        <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+      </div>
+      <div class="thought">
+        <h2>Reflexão Aleatória</h2>
+        <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+      </div>
+    </section>
+
+    <section id="loja" class="section">
+      <div class="product">
+        <h3>Marketing Digital Descomplicado</h3>
+        <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
+        <p><strong>R$ 29,90</strong></p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Bitcoin</h3>
+        <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia...</p>
+        <p><strong>R$ 29,90</strong></p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+
+      <!-- Adicione mais produtos aqui conforme necessário -->
+    </section>
+  </main>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
