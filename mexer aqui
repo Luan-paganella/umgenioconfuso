@@ -178,3 +178,12 @@
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
           <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_
+      <div class="product">
+        <h3>Brasil: Terra de diversidade e potencial</h3>
+        <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
+        <p><strong>R$ 29,90</strong></p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+        </div>
+      </div>
