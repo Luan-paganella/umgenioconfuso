@@ -1,1 +1,139 @@
-index.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Um Gênio Confuso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 10px;
+      background-color: rgba(18, 18, 18, 0.9);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #00bcd4;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #b0bec5;
+      font-style: italic;
+    }
+
+    .logo-space {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      background: #263238;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      color: #00bcd4;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .thought {
+      background-color: #1e1e1e;
+      border-left: 4px solid #00bcd4;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00000055;
+      transition: 0.3s;
+    }
+
+    .thought:hover {
+      background-color: #232323;
+    }
+
+    .thought h2 {
+      margin-top: 0;
+      color: #81d4fa;
+    }
+
+    .thought p {
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+
+    .unread-thoughts {
+      background-color: #2a2a2a;
+      border-left: 4px solid #ff5722;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px #ff572099;
+      font-style: italic;
+      font-size: 1.2em;
+      color: #ffab91;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #333;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-space">🧠</div>
+    <h1>Um Gênio Confuso</h1>
+    <p>"Um mundo sobre outro mundo"</p>
+  </header>
+
+  <main>
+    <div class="thought">
+      <h2>Pensamento do Dia</h2>
+      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+    </div>
+
+    <div class="thought">
+      <h2>Reflexão Aleatória</h2>
+      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+    </div>
+
+    <div class="unread-thoughts">
+      Pensamentos não lidos
+    </div>
+  </main>
+
+  <footer>
+    Criado por Um Gênio Confuso • 2025
+  </footer>
+
+</body>
+</html>
