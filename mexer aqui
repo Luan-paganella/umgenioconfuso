@@ -6,102 +6,241 @@
   <title>Um Gênio Confuso</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset e básico */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background-color: #121212;
       color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+    }
+    a:hover {
+      opacity: 0.8;
+    }
+
+    /* Menu fixo no topo */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #1e1e1e;
+      border-bottom: 2px solid #00bcd4;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    nav .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .logo {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #00bcd4;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      font-weight: 500;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #b0bec5;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    /* Espaço para o menu fixo */
+    header, main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
     }
     header {
+      padding-top: 80px;
+      padding-bottom: 20px;
       text-align: center;
-      padding: 40px 20px 10px;
-      background-color: #1e1e1e;
     }
     header h1 {
       font-size: 3em;
       margin: 0;
       color: #00bcd4;
+      user-select: none;
     }
     header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: #b0bec5;
+      font-size: 1.3em;
+      margin-top: 8px;
+      color: #80deea;
       font-style: italic;
     }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+
+    /* Pensamentos */
     .thought {
       background-color: #1e1e1e;
-      border-left: 4px solid #00bcd4;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 8px;
+      border-left: 5px solid #00bcd4;
+      padding: 25px 30px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00bcd4aa;
+      user-select: text;
     }
     .thought h2 {
       color: #81d4fa;
       margin-top: 0;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
+    .thought p {
+      font-size: 1.15em;
+    }
+
+    /* Seção Loja */
     .store {
-      margin-top: 60px;
+      margin-bottom: 60px;
     }
     .store h2 {
-      font-size: 2em;
+      font-size: 2.4em;
       color: #00bcd4;
-      border-bottom: 2px solid #00bcd4;
+      border-bottom: 3px solid #00bcd4;
       padding-bottom: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+      user-select: none;
     }
+
+    /* Produtos */
     .product {
-      background-color: #1e1e1e;
-      padding: 25px;
-      border-radius: 8px;
-      margin-bottom: 30px;
+      background-color: #222;
+      padding: 30px 25px;
+      border-radius: 12px;
+      margin-bottom: 35px;
+      box-shadow: 0 0 12px #00bcd433;
+      transition: box-shadow 0.3s ease;
+    }
+    .product:hover {
+      box-shadow: 0 0 25px #00bcd477;
     }
     .product h3 {
       color: #81d4fa;
       margin-top: 0;
+      font-weight: 700;
+      user-select: text;
     }
     .product p {
       font-size: 1.1em;
-      margin: 10px 0;
+      margin: 18px 0;
+      user-select: text;
     }
+    .product strong {
+      font-size: 1.2em;
+      color: #c5e1a5;
+      user-select: text;
+    }
+
+    /* Botões */
     .buttons {
-      margin-top: 15px;
+      margin-top: 20px;
     }
     .btn {
       display: inline-block;
+      padding: 12px 25px;
+      margin-right: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1em;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      margin-right: 10px;
-      font-weight: bold;
-      transition: 0.3s;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      user-select: none;
     }
     .btn.pix {
       background-color: #43a047;
       color: white;
+      box-shadow: 0 4px 8px #388e3c88;
+    }
+    .btn.pix:hover {
+      background-color: #388e3c;
     }
     .btn.card {
       background-color: #3949ab;
       color: white;
+      box-shadow: 0 4px 8px #303f9f88;
     }
-    .btn:hover {
-      opacity: 0.8;
+    .btn.card:hover {
+      background-color: #303f9f;
     }
+
+    /* Rodapé */
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px 20px;
       font-size: 0.9em;
       color: #666;
       border-top: 1px solid #333;
-      margin-top: 60px;
+      user-select: none;
+      margin-bottom: 30px;
+    }
+
+    /* Responsividade simples */
+    @media (max-width: 600px) {
+      nav .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      header h1 {
+        font-size: 2.2em;
+      }
+      .store h2 {
+        font-size: 1.8em;
+      }
+      .product p {
+        font-size: 1em;
+      }
+      .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
+
+  <nav>
+    <div class="container">
+      <div class="logo">Um Gênio Confuso</div>
+      <ul>
+        <li><a href="#pensamentos">Pensamentos</a></li>
+        <li><a href="#loja">Loja</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <header>
     <h1>Um Gênio Confuso</h1>
@@ -109,17 +248,19 @@
   </header>
 
   <main>
-    <div class="thought">
-      <h2>Pensamento do Dia</h2>
-      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
-    </div>
+    <section id="pensamentos">
+      <div class="thought">
+        <h2>Pensamento do Dia</h2>
+        <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+      </div>
 
-    <div class="thought">
-      <h2>Reflexão Aleatória</h2>
-      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
-    </div>
+      <div class="thought">
+        <h2>Reflexão Aleatória</h2>
+        <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+      </div>
+    </section>
 
-    <section class="store">
+    <section class="store" id="loja">
       <h2>📚 Loja</h2>
 
       <div class="product">
@@ -127,8 +268,8 @@
         <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
         </div>
       </div>
 
@@ -137,8 +278,8 @@
         <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
         </div>
       </div>
 
@@ -147,8 +288,8 @@
         <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
         </div>
       </div>
 
@@ -157,8 +298,8 @@
         <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
         </div>
       </div>
 
@@ -167,8 +308,8 @@
         <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário. Com as estratégias certas, disciplina e conhecimento, qualquer pessoa pode aproveitar o poder do mundo digital para alcançar a liberdade financeira.</p>
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
         </div>
       </div>
 
@@ -177,13 +318,22 @@
         <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
         <p><strong>R$ 29,90</strong></p>
         <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_
-      <div class="product">
-        <h3>Brasil: Terra de diversidade e potencial</h3>
-        <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
-        <p><strong>R$ 29,90</strong></p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
         </div>
       </div>
+
+      <div class="product">
+        <h3>A vida fora d’Terra</h3>
+        <p>A busca por vida fora da Terra é uma das perguntas mais antigas e fascinantes da humanidade. Desde os primeiros olhares curiosos para o céu estrelado até as modernas missões espaciais, queremos saber: estamos sozinhos no universo?</p>
+        <p><strong>R$ 29,90</strong></p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Curiosidades dos Milionários</h3>
+        <p>Milionários sempre despertaram curiosidade pela forma como vivem, pensam e agem no dia a dia. Muitos acreditam que a fortuna vem só da sorte, mas a realidade mostra que há hábitos, mentalidades e decisões que fazem toda a diferença. Neste livro, você vai conhecer diversas curiosidades e fatos pouco conhecidos sobre milionários que podem te inspirar e ajudar a entender o que realmente faz deles tão bem-sucedidos. Prepare-se para descobrir os segredos por trás das fortunas!</p>
+        <p><strong>R
