@@ -1,0 +1,154 @@
+index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Um Gênio Confuso</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f0f2f5;
+      color: #333;
+    }
+    header {
+      background-color: #4a148c;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 2.2em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      background-color: #6a1b9a;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffca28;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    section h2 {
+      margin-top: 0;
+      color: #4a148c;
+    }
+    .blog-post {
+      margin-bottom: 25px;
+    }
+    .blog-post h3 {
+      margin-bottom: 8px;
+      color: #6a1b9a;
+    }
+    .social-links {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .social-links a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #4a148c;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #ffca28;
+    }
+    footer {
+      background-color: #4a148c;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9em;
+    }
+    footer nav a {
+      color: #ffca28;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    Um Gênio Confuso
+  </header>
+
+  <nav>
+    <a href="#about">Sobre</a>
+    <a href="#blog">Blog</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>Sobre</h2>
+      <p>Bem-vindo ao site "Um Gênio Confuso"! Aqui você encontrará conteúdo criativo e cheio de reflexões, ideias inovadoras e um toque de mistério. Explore as ideias, aprenda algo novo e divirta-se no caminho!</p>
+      <div class="social-links" aria-label="Redes sociais">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </section>
+
+    <section id="blog">
+      <h2>Blog</h2>
+      <article class="blog-post">
+        <h3>Como abraçar a confusão criativa</h3>
+        <p>Às vezes, as melhores ideias surgem quando menos esperamos. A confusão pode ser o espaço onde a criatividade floresce. Descubra como usar esse momento a seu favor.</p>
+      </article>
+      <article class="blog-post">
+        <h3>5 hábitos para estimular seu cérebro</h3>
+        <p>Pequenas mudanças diárias podem ajudar a despertar seu potencial intelectual e expandir suas capacidades mentais. Vamos explorar juntos alguns hábitos essenciais.</p>
+      </article>
+      <article class="blog-post">
+        <h3>A importância de errar para aprender</h3>
+        <p>O erro não é um fracasso, mas uma oportunidade de crescimento. Veja como a mentalidade de aprendizado pode transformar seu caminho para o sucesso.</p>
+      </article>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Quer falar comigo? Envie um e-mail para <a href="mailto:contato@umgenioconfuso.com">contato@umgenioconfuso.com</a> ou siga-me nas redes sociais acima.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Um Gênio Confuso - Todos os direitos reservados.
+    <nav aria-label="Links do rodapé">
+      <a href="#about">Sobre</a> | 
+      <a href="#blog">Blog</a> | 
+      <a href="#contato">Contato</a>
+    </nav>
+  </footer>
+</body>
+</html>
