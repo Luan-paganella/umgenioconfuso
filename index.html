@@ -1,190 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Um Gênio Confuso</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background:
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #222;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
     }
     header {
       text-align: center;
-      padding: 20px 10px 5px;
-      background-color: rgba(255 255 255 / 0.85);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      padding: 30px 20px 10px;
+      background-color: #000;
     }
     header h1 {
       margin: 0;
-      font-size: 2.8em;
-      color: #333;
+      font-size: 36px;
     }
     header p {
-      margin: 5px 0 15px;
-      font-size: 1.2em;
-      color: #555;
-      font-style: italic;
+      margin: 10px 0 20px;
+      font-size: 18px;
+      color: #aaa;
     }
     nav {
       text-align: center;
-      margin-bottom: 20px;
-      background-color: rgba(255 255 255 / 0.85);
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      margin-bottom: 30px;
     }
     nav a {
-      text-decoration: none;
-      border: 2px solid #6666aa;
-      color: #6666aa;
-      font-size: 1.1em;
-      padding: 10px 25px;
-      margin: 0 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    nav a:hover,
-    nav a:focus {
-      background-color: #6666aa;
+      display: inline-block;
+      background-color: #333;
       color: #fff;
-      outline: none;
+      padding: 10px 20px;
+      margin: 5px;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    main {
-      flex-grow: 1;
-      max-width: 800px;
-      margin: 0 auto 60px;
-      padding: 0 20px;
-      background-color: rgba(255 255 255 / 0.9);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    nav a:hover {
+      background-color: #555;
     }
     section {
-      padding: 20px 0;
-      border-bottom: 1px solid #ddd;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
     }
-    section:last-child {
-      border-bottom: none;
-    }
-    /* Produto e loja */
-    .product {
-      background-color: #f8f8f8;
+    .produto {
+      background-color: #1a1a1a;
       padding: 20px;
+      margin: 20px 0;
       border-radius: 8px;
-      margin-bottom: 30px;
-      color: #333;
-      box-shadow: 0 2px 6px rgb(102 102 170 / 0.3);
     }
-    .product h3 {
+    .produto h3 {
       margin-top: 0;
-      color: #444477;
     }
-    .product p {
-      font-size: 1.05em;
-      line-height: 1.4;
-      color: #555;
-    }
-    .btn {
+    .btn-pagar, .btn-secreto {
       display: inline-block;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      margin: 10px 10px 0 0;
-      font-weight: bold;
-      transition: 0.3s;
-      color: #fff;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    .btn.pix {
-      background-color: #6666aa;
-    }
-    .btn.card {
-      background-color: #4b4b87;
-    }
-    .btn:hover {
-      opacity: 0.85;
-    }
-    /* Contato */
-    .contact-info p {
-      font-size: 1.1em;
-      margin: 10px 0;
-      color: #444477;
-    }
-    /* Home textarea */
-    textarea#bookInput {
-      width: 100%;
-      max-width: 500px;
-      padding: 10px;
-      font-size: 1em;
-      border-radius: 6px;
-      border: 1px solid #6666aa;
-      resize: vertical;
-      color: #222;
-    }
-    button#submitBook {
-      margin-top: 10px;
-      padding: 8px 20px;
-      font-size: 1em;
-      border-radius: 6px;
-      border: none;
-      background-color: #6666aa;
+      background-color: #444;
       color: white;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s;
-    }
-    button#submitBook:hover {
-      background-color: #4b4b87;
-    }
-    ul#bookList {
-      list-style-type: disc;
-      padding-left: 20px;
-      max-width: 500px;
-      color: #333;
-    }
-    /* Rodapé */
-    footer {
-      background-color: rgba(255 255 255 / 0.9);
-      padding: 8px 15px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: nowrap;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
+      text-decoration: none;
       user-select: none;
     }
-    footer a {
-      border: 2px solid #6666aa;
-      color: #6666aa;
-      padding: 6px 16px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1em;
-      transition: background-color 0.3s, color 0.3s;
+    .btn-pagar:hover, .btn-secreto:hover {
+      background-color: #666;
     }
-    footer a:hover,
-    footer a:focus {
-      background-color: #6666aa;
-      color: #fff;
-      outline: none;
+    .btn-secreto {
+      display: none;
+      margin-left: 10px;
+    }
+    footer {
+      background-color: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .secreta {
+      display: none;
+      background-color: #222;
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 5px;
+      color: #ddd;
     }
   </style>
 </head>
@@ -192,142 +97,150 @@
 
 <header>
   <h1>Um Gênio Confuso</h1>
-  <p>“Um mundo sobre outro mundo”</p>
+  <p>Pensamentos soltos, ideias geniais e um toque de caos criativo.</p>
 </header>
 
 <nav>
-  <a href="#home" id="link-home">Home</a>
-  <a href="#loja" id="link-loja">Loja</a>
-  <a href="#contato" id="link-contato">Contato</a>
-</nav>
-
-<main>
-  <section id="home">
-    <h2>Pensamento do Dia</h2>
-    <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
-
-    <h2>Reflexão Aleatória</h2>
-    <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
-
-    <h2>Qual o melhor livro que você já leu?</h2>
-    <textarea id="bookInput" rows="3" placeholder="Escreva aqui o título do seu livro favorito..."></textarea>
-    <br />
-    <button id="submitBook">Enviar</button>
-
-    <h3 style="margin-top: 30px;">Livros indicados por visitantes:</h3>
-    <ul id="bookList"></ul>
-  </section>
-
-  <section id="loja">
-    <h2>📚 Loja</h2>
-
-    <div class="product">
-      <h3>Marketing Digital Descomplicado</h3>
-      <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Bitcoin</h3>
-      <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Storytelling</h3>
-      <p>Storytelling é a arte de contar histórias para conectar, emocionar e vender. Aprenda a construir narrativas poderosas que vão prender a atenção do seu público e transformar sua comunicação em resultados reais.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Psicologia da Venda</h3>
-      <p>Entenda os gatilhos mentais e estratégias psicológicas que influenciam as decisões de compra. Este livro traz insights valiosos para quem quer vender mais e melhor.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Marketing de Conteúdo</h3>
-      <p>Aprenda a criar conteúdos que engajam, educam e convertem seu público-alvo. O marketing de conteúdo é a base do marketing digital moderno.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>SEO para Iniciantes</h3>
-      <p>Descubra como otimizar seu site para motores de busca e aumentar o tráfego orgânico. Técnicas simples e práticas para começar hoje mesmo.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Copywriting</h3>
-      <p>Aprenda a escrever textos persuasivos que vendem, influenciam e conectam com o seu público. Técnicas usadas por profissionais para aumentar conversões.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Funil de Vendas</h3>
-      <p>Compreenda as etapas do funil de vendas e como guiar seus clientes da descoberta até a compra com eficiência.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Instagram para Negócios</h3>
-      <p>Dicas práticas para usar o Instagram como ferramenta de marketing e vendas, criando uma presença forte e engajada.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <div class="contact-info">
-      <p><strong>Email:</strong> contato@umgenioconfuso.com</p>
-      <p><strong>Telefone:</strong> (11) 91234-5678</p>
-      <p><strong>Endereço:</strong> Rua dos Gênios, 123 - São Paulo, SP</p>
-    </div>
-  </section>
-</main>
-
-<footer>
   <a href="#home">Home</a>
   <a href="#loja">Loja</a>
-  <a href="#contato">Contato</a>
-  <span>© Paganella</span>
+</nav>
+
+<section id="home">
+  <h2>Home</h2>
+  <p>Bem-vindo ao meu espaço de ideias confusas e criativas. Em breve, pensamentos serão publicados aqui.</p>
+</section>
+
+<section id="loja">
+  <h2>Loja</h2>
+
+  <div class="produto">
+    <h3>Produto 1</h3>
+    <p>Descrição do produto 1.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto1" class="btn-secreto" href="#secreta-produto1">Acessar Conteúdo</a>
+    <div id="secreta-produto1" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 1</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 2</h3>
+    <p>Descrição do produto 2.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto2" class="btn-secreto" href="#secreta-produto2">Acessar Conteúdo</a>
+    <div id="secreta-produto2" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 2</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 3</h3>
+    <p>Descrição do produto 3.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto3" class="btn-secreto" href="#secreta-produto3">Acessar Conteúdo</a>
+    <div id="secreta-produto3" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 3</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 4</h3>
+    <p>Descrição do produto 4.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto4" class="btn-secreto" href="#secreta-produto4">Acessar Conteúdo</a>
+    <div id="secreta-produto4" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 4</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 5</h3>
+    <p>Descrição do produto 5.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto5" class="btn-secreto" href="#secreta-produto5">Acessar Conteúdo</a>
+    <div id="secreta-produto5" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 5</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 6</h3>
+    <p>Descrição do produto 6.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto6" class="btn-secreto" href="#secreta-produto6">Acessar Conteúdo</a>
+    <div id="secreta-produto6" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 6</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 7</h3>
+    <p>Descrição do produto 7.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto7" class="btn-secreto" href="#secreta-produto7">Acessar Conteúdo</a>
+    <div id="secreta-produto7" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 7</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 8</h3>
+    <p>Descrição do produto 8.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto8" class="btn-secreto" href="#secreta-produto8">Acessar Conteúdo</a>
+    <div id="secreta-produto8" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 8</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 9</h3>
+    <p>Descrição do produto 9.</p>
+    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
+    <a id="botao-secreto-produto9" class="btn-secreto" href="#secreta-produto9">Acessar Conteúdo</a>
+    <div id="secreta-produto9" class="secreta">
+      <h4>Conteúdo Exclusivo Produto 9</h4>
+      <p>Aqui está o conteúdo desbloqueado após o pagamento.</p>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>Contato:</p>
+  <p>Email: <a href="mailto:luanpaganella59@gmail.com" style="color:#aaa;">luanpaganella59@gmail.com</a></p>
+  <p>Telefone: <a href="tel:+5551997795994" style="color:#aaa;">(51) 99779-5994</a></p>
+  <p>Endereço: Torres Centro</p>
 </footer>
 
 <script>
-  // Código para lidar com o livro indicado pelo usuário e armazenar na lista abaixo
-  const submitBtn = document.getElementById('submitBook');
-  const bookInput = document.getElementById('bookInput');
-  const bookList = document.getElementById('bookList');
+  // Função para mostrar o botão e conteúdo secreto conforme o parâmetro URL
+  function mostrarConteudoSecreto() {
+    const params = new URLSearchParams(window.location.search);
+    const acesso = params.get('acesso');
 
-  submitBtn.addEventListener('click', () => {
-    const bookTitle = bookInput.value.trim();
-    if(bookTitle) {
-      const li = document.createElement('li');
-      li.textContent = bookTitle;
-      bookList.appendChild(li);
-      bookInput.value = '';
-    } else {
-      alert('Por favor, escreva o título do livro antes de enviar.');
+    if (!acesso) return; // Se não tem parâmetro, não mostra nada
+
+    // Exemplo de acesso: produto1, produto2, ...
+    const botaoSecreto = document.getElementById('botao-secreto-' + acesso);
+    const conteudoSecreto = document.getElementById('secreta-' + acesso);
+
+    if (botaoSecreto && conteudoSecreto) {
+      botaoSecreto.style.display = 'inline-block';
+      conteudoSecreto.style.display = 'block';
     }
-  });
+  }
+
+  // Executa ao carregar a página
+  window.onload = mostrarConteudoSecreto;
 </script>
 
 </body>
