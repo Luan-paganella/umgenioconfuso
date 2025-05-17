@@ -7,86 +7,90 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+    /* Reset e base */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(180deg, #a3c293 0%, #556b2f 100%);
-      color: #2e3b1f; /* tom escuro natureza */
-      min-height: 100vh;
+      background: #fefefe;
+      color: #222;
       display: flex;
       flex-direction: column;
-      position: relative;
-    }
-    /* Fundo árvores e galhos 3D */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-      opacity: 0.15;
-      z-index: -1;
-      filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+      min-height: 100vh;
     }
 
     header {
+      background: #fff;
+      padding: 20px 15px 10px;
       text-align: center;
-      padding: 25px 10px 10px;
-      background-color: rgba(234, 240, 221, 0.85);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 10;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      position: relative;
+      overflow: hidden;
     }
     header h1 {
       margin: 0;
-      font-size: 3em;
-      color: #385723; /* verde musgo */
-      text-shadow: 1px 1px 3px #dbe8b5;
+      font-size: 3rem;
+      color: #3a3a8e; /* tom principal elegante */
+      font-weight: 700;
     }
     header p {
-      margin: 8px 0 20px;
-      font-size: 1.3em;
-      color: #57734d;
+      margin: 6px 0 20px;
+      font-size: 1.3rem;
       font-style: italic;
-      text-shadow: 1px 1px 2px #e4f2c2;
+      color: #5a5a9e;
     }
+
+    /* Imagem elegante da moça lendo livro no header */
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 250px; height: 100%;
+      background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=300&q=80') no-repeat center/cover;
+      opacity: 0.85;
+      border-bottom-left-radius: 80px;
+      pointer-events: none;
+      user-select: none;
+    }
+
     nav {
       display: flex;
       justify-content: center;
+      background: #f0f0ff;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
       gap: 15px;
-      background-color: rgba(234, 240, 221, 0.85);
-      padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px 10px;
       z-index: 10;
       position: sticky;
       top: 0;
     }
     nav button {
-      background-color: transparent;
-      border: 2px solid #57734d;
-      color: #57734d;
-      font-size: 1.15em;
+      background: transparent;
+      border: 2px solid #3a3a8e;
+      color: #3a3a8e;
+      font-size: 1.15rem;
       padding: 10px 28px;
       border-radius: 8px;
-      cursor: pointer;
       font-weight: 600;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
-    nav button.active,
-    nav button:hover {
-      background-color: #57734d;
-      color: #eaf0dd;
-      border-color: #385723;
+    nav button:hover,
+    nav button.active {
+      background: #3a3a8e;
+      color: white;
+      border-color: #2a2a6e;
     }
+
     main {
       flex: 1;
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 0 20px 60px; /* bottom padding for footer */
+      max-width: 900px;
+      margin: 30px auto 100px;
+      padding: 0 20px;
     }
+
     section {
       display: none;
-      animation: fadeIn 0.5s ease forwards;
+      animation: fadeIn 0.4s ease forwards;
     }
     section.active {
       display: block;
@@ -96,102 +100,125 @@
       to {opacity: 1;}
     }
 
-    /* Produtos */
+    /* Conteúdo Home */
+    #home p {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 1.6em;
+    }
+
+    /* Loja */
     .product {
-      background-color: rgba(234, 240, 221, 0.85);
-      padding: 20px;
-      border-radius: 8px;
+      background: #f9f9ff;
+      border: 1px solid #d4d4f0;
+      border-radius: 10px;
+      padding: 20px 25px;
       margin-bottom: 30px;
-      color: #3e5d21;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 6px rgb(58 58 142 / 0.15);
+      color: #333366;
     }
     .product h3 {
       margin-top: 0;
-      color: #385723;
+      color: #3a3a8e;
     }
     .product p {
-      font-size: 1.05em;
-      margin-bottom: 10px;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: #4a4a7a;
+    }
+    .product strong {
+      font-size: 1.15rem;
+      color: #222244;
     }
     .btn {
       display: inline-block;
       text-decoration: none;
       padding: 10px 20px;
       border-radius: 6px;
-      margin: 10px 10px 0 0;
-      font-weight: bold;
-      transition: 0.3s;
-      color: #eaf0dd;
+      margin-right: 12px;
+      font-weight: 600;
       cursor: pointer;
       border: none;
       user-select: none;
+      transition: background-color 0.3s ease;
+      color: white;
     }
     .btn.pix {
-      background-color: #619755; /* verde suave */
+      background-color: #5656d6; /* tom principal */
+    }
+    .btn.pix:hover {
+      background-color: #3b3bb0;
     }
     .btn.card {
-      background-color: #446630; /* verde escuro */
+      background-color: #2f2fa8;
     }
-    .btn:hover {
-      opacity: 0.8;
+    .btn.card:hover {
+      background-color: #1a1a70;
     }
 
     /* Contato */
     .contact-info p {
-      font-size: 1.1em;
-      margin: 10px 0;
-      color: #57734d;
+      font-size: 1.15rem;
+      color: #444;
+      margin-bottom: 10px;
     }
 
-    /* Rodapé */
+    /* Rodapé com botões e assinatura */
     footer {
-      background-color: rgba(234, 240, 221, 0.85);
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-      padding: 15px 10px;
+      background: #f0f0ff;
+      box-shadow: 0 -2px 6px rgb(0 0 0 / 0.1);
+      padding: 12px 10px;
       text-align: center;
-      color: #385723;
+      color: #3a3a8e;
       font-weight: 600;
       position: fixed;
-      width: 100%;
       bottom: 0;
-      left: 0;
+      width: 100%;
       display: flex;
       justify-content: center;
-      gap: 15px;
       align-items: center;
+      gap: 20px;
       flex-wrap: wrap;
       z-index: 20;
     }
     footer button {
-      background-color: transparent;
-      border: 2px solid #57734d;
-      color: #57734d;
-      font-size: 1em;
-      padding: 8px 22px;
+      background: transparent;
+      border: 2px solid #3a3a8e;
+      color: #3a3a8e;
+      font-size: 1rem;
+      padding: 8px 24px;
       border-radius: 8px;
-      cursor: pointer;
       font-weight: 600;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
     footer button:hover {
-      background-color: #57734d;
-      color: #eaf0dd;
-      border-color: #385723;
+      background: #3a3a8e;
+      color: white;
+      border-color: #2a2a6e;
     }
     footer .signature {
       font-style: italic;
       font-weight: 500;
       user-select: none;
+      white-space: nowrap;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
+    /* Responsividade */
+    @media (max-width: 700px) {
+      header::after {
+        display: none;
+      }
       nav {
         flex-direction: column;
       }
       footer {
         flex-direction: column;
         gap: 10px;
+      }
+      main {
+        margin-bottom: 140px;
       }
     }
   </style>
@@ -225,13 +252,127 @@
       <h3>Marketing Digital Descomplicado</h3>
       <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Bitcoin</h3>
       <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 P
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Investimento</h3>
+      <p>Investir não é apenas uma palavra da moda, é uma necessidade para construir riqueza e segurança financeira. Conheça os princípios fundamentais para investir com segurança e inteligência.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Blockchain</h3>
+      <p>Descubra como a tecnologia blockchain está mudando a forma como fazemos transações e como ela pode impactar o futuro das finanças e da internet.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Educação Financeira</h3>
+      <p>Um guia completo para organizar suas finanças pessoais, sair do vermelho e começar a construir seu patrimônio com consciência e planejamento.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Marketing de Conteúdo</h3>
+      <p>Aprenda a criar conteúdos que atraem, engajam e convertem, transformando seguidores em clientes fiéis.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>SEO Descomplicado</h3>
+      <p>Otimize seu site e seu conteúdo para aparecer nas primeiras posições do Google e aumente sua visibilidade orgânica.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Redes Sociais para Negócios</h3>
+      <p>Domine as principais redes sociais para impulsionar sua marca, aumentar seu alcance e fidelizar clientes.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Copywriting para Vendas</h3>
+      <p>Aprenda técnicas para escrever textos que vendem, despertam desejo e motivam a ação do seu público.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> contato@umgenioconfuso.com</p>
+      <p><strong>Telefone:</strong> (11) 99999-9999</p>
+      <p><strong>Endereço:</strong> Rua das Ideias, 123 - São Paulo, SP</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <button id="ftr-btn-home">Home</button>
+  <button id="ftr-btn-loja">Loja</button>
+  <button id="ftr-btn-contato">Contato</button>
+  <span class="signature">Paganella</span>
+</footer>
+
+<script>
+  // Navegação topo e rodapé
+  const sections = {
+    home: document.getElementById('home'),
+    loja: document.getElementById('loja'),
+    contato: document.getElementById('contato')
+  };
+
+  // Botões topo
+  const btnHome = document.getElementById('btn-home');
+  const btnLoja = document.getElementById('btn-loja');
+  const btnContato = document.getElementById('btn-contato');
+
+  // Botões rodapé
+  const ftrBtnHome = document.getElementById('ftr-btn-home');
+  const ftrBtnLoja = document.getElementById('ftr-btn-loja');
+  const ftrBtnContato = document.getElementById('ftr-btn-contato');
+
+  function showSection(name) {
+    for (const key in sections) {
+      sections[key].classList.remove('active');
+    }
+    sections[name].classList.add('active');
+
+    // Atualiza topo
+    [btnHome, btnLoja, btnContato].forEach(btn => btn.classList.remove('active'));
+    if (name === 'home') btnHome.classList.add('active');
+    else if (name === 'loja') btnLoja.classList.add('active');
+    else if (name === 'contato') btnContato.classList.add('active');
+
+    // Atualiza rodapé
+    [ftrBtnHome, ftrBtnLoja, ftrBtnContato].forEach(btn => btn.classList.remove('active'));
+    if (name === 'home') ftrBtnHome.classList.add('active');
+    else if (name === 'loja') ftrBtnLoja.classList.add('active');
+    else if (name === 'contato') ftrBtnContato.classList.add('active');
+  }
+
+  btnHome.onclick
