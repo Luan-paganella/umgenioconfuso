@@ -683,3 +683,210 @@
   <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
   <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
 </div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Um Gênio Confuso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset e base */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000000;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 15px 40px;
+    }
+    header {
+      width: 100%;
+      max-width: 900px;
+      padding: 20px 0 5px;
+      text-align: center;
+      border-bottom: 1px solid #660000;
+      user-select: none;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #ff0000;
+      font-weight: 700;
+    }
+    header p {
+      margin: 4px 0 15px;
+      font-style: italic;
+      font-weight: 500;
+      color: #ff3333;
+      font-size: 1.3em;
+    }
+    nav {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      user-select: none;
+    }
+    nav button {
+      background-color: transparent;
+      border: 2px solid #ff0000;
+      border-radius: 6px;
+      color: #ff0000;
+      font-weight: 700;
+      font-size: 1.1em;
+      padding: 10px 22px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      min-width: 90px;
+    }
+    nav button:hover {
+      background-color: #ff0000;
+      color: #000;
+    }
+    main {
+      width: 100%;
+      max-width: 900px;
+      background-color: #111;
+      border-radius: 8px;
+      padding: 25px 30px;
+      box-shadow: 0 0 12px #660000cc;
+      min-height: 350px;
+    }
+    /* Conteúdos das abas */
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    /* Loja */
+    .product {
+      background-color: #222;
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 8px #ff000080;
+    }
+    .product h3 {
+      color: #ff4d4d;
+      margin-top: 0;
+    }
+    .product p {
+      font-size: 1.05em;
+      line-height: 1.4;
+      margin: 10px 0 14px;
+      color: #ddd;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1.15em;
+      margin-bottom: 12px;
+      color: #ff0000;
+    }
+    .buttons {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1em;
+      user-select: none;
+      transition: background-color 0.3s;
+      color: #fff;
+      background-color: #660000;
+      border: 2px solid #ff0000;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #ff0000;
+      color: #000;
+    }
+    /* Contato */
+    .contact-info p {
+      margin: 8px 0;
+      font-size: 1.1em;
+      color: #ff3333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Um Gênio Confuso</h1>
+    <p>"Um mundo sobre outro mundo"</p>
+  </header>
+
+  <nav id="tab-buttons">
+    <!-- Botões aparecem aqui dinamicamente -->
+  </nav>
+
+  <main>
+    <section id="home" class="active">
+      <h2 style="color:#ff0000;">Home</h2>
+      <div class="thought">
+        <h3 style="color:#ff4d4d;">Pensamento do Dia</h3>
+        <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+      </div>
+      <div class="thought">
+        <h3 style="color:#ff4d4d;">Reflexão Aleatória</h3>
+        <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+      </div>
+    </section>
+
+    <section id="loja">
+      <h2 style="color:#ff0000;">📚 Loja</h2>
+
+      <div class="product">
+        <h3>Marketing Digital Descomplicado</h3>
+        <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
+        <p class="price">R$ 29,90</p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Bitcoin</h3>
+        <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
+        <p class="price">R$ 29,90</p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Marte</h3>
+        <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
+        <p class="price">R$ 29,90</p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Dropshipping</h3>
+        <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
+        <p class="price">R$ 29,90</p>
+        <div class="buttons">
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Como se tornar um milionário com a internet</h3>
+        <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário
