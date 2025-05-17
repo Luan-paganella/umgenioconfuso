@@ -3,66 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Um Gênio Confuso</title>
+  <title>Um futuro milionário</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
   <style>
+    /* Fonte e Reset */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
+      background: linear-gradient(to bottom, #aee1f9, #f8f4e3);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      color: #3a6351;
     }
     header {
-      background-color: rgba(0, 50, 20, 0.8);
+      background-color: rgba(248, 244, 227, 0.9);
       text-align: center;
-      padding: 20px 10px 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      padding: 25px 10px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-bottom: 2px solid #f0d49c;
     }
     header h1 {
       margin: 0;
       font-size: 3em;
-      color: #d8f3dc;
+      color: #42796f;
+      font-weight: 700;
     }
     header p {
-      margin: 5px 0 15px;
-      font-size: 1.3em;
-      color: #95d5b2;
+      margin: 5px 0 25px;
+      font-size: 1.4em;
+      color: #6b8e23;
       font-style: italic;
+      font-family: 'Dancing Script', cursive;
     }
     nav {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
     nav button {
-      background-color: rgba(58, 83, 45, 0.7);
-      border: 2px solid #95d5b2;
-      color: #95d5b2;
+      background-color: #f0d49c;
+      border: 2px solid #c9b27f;
+      color: #42796f;
       font-size: 1.1em;
-      padding: 10px 25px;
-      margin: 0 10px;
-      border-radius: 6px;
+      padding: 12px 28px;
+      margin: 0 12px;
+      border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s, color 0.3s;
+      font-weight: 600;
     }
     nav button.active,
     nav button:hover {
-      background-color: #95d5b2;
-      color: #003300;
-      border-color: #95d5b2;
+      background-color: #42796f;
+      color: #f8f4e3;
+      border-color: #42796f;
     }
     main {
       flex: 1;
-      max-width: 900px;
-      margin: 0 auto 50px;
+      max-width: 960px;
+      margin: 0 auto 60px;
       padding: 0 20px;
-      background-color: rgba(0,50,20,0.7);
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      background-color: rgba(255, 252, 240, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(66, 121, 111, 0.15);
     }
     section {
       display: none;
@@ -73,115 +77,130 @@
     /* Campo para pensamento */
     .pensamento-label {
       display: block;
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 1.3em;
-      color: #d8f3dc;
+      color: #42796f;
       font-weight: 600;
     }
     .pensamento-textarea {
       width: 100%;
-      height: 100px;
+      height: 110px;
       margin-top: 10px;
-      padding: 10px;
+      padding: 14px;
       font-size: 1.1em;
-      border-radius: 8px;
-      border: 1px solid #95d5b2;
+      border-radius: 10px;
+      border: 2px solid #f0d49c;
       resize: vertical;
-      background-color: #e6f0d4;
-      color: #003300;
+      background-color: #f8f4e3;
+      color: #3a6351;
       font-family: 'Roboto', sans-serif;
+      box-shadow: inset 2px 2px 5px #e1d5a1;
+      transition: border-color 0.3s;
+    }
+    .pensamento-textarea:focus {
+      outline: none;
+      border-color: #6b8e23;
+      box-shadow: inset 2px 2px 8px #a6c97a;
     }
     /* Produtos */
     .product {
-      background-color: rgba(58, 83, 45, 0.85);
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-      color: #d8f3dc;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      background-color: #f0d49c;
+      padding: 22px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      color: #42796f;
+      box-shadow: 0 3px 15px rgba(66, 121, 111, 0.3);
+      font-weight: 500;
     }
     .product h3 {
       margin-top: 0;
-      color: #95d5b2;
+      color: #6b8e23;
+      font-weight: 700;
     }
     .product p {
       font-size: 1.05em;
+      margin: 12px 0;
     }
     .btn {
       display: inline-block;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      margin: 10px 10px 0 0;
-      font-weight: bold;
+      padding: 11px 22px;
+      border-radius: 9px;
+      margin: 10px 12px 0 0;
+      font-weight: 700;
       transition: 0.3s;
-      color: #003300;
+      color: #f8f4e3;
       cursor: pointer;
       user-select: none;
+      font-size: 1em;
+      border: none;
+      box-shadow: 0 3px 6px rgba(66, 121, 111, 0.4);
     }
     .btn.pix {
-      background-color: #a7c957;
+      background-color: #a6c97a;
     }
     .btn.card {
       background-color: #6b8e23;
     }
     .btn.access {
-      background-color: #ffd166;
-      color: #003300;
-      margin-left: 15px;
+      background-color: #42796f;
+      color: #f8f4e3;
+      margin-left: 16px;
     }
     .btn:hover {
-      opacity: 0.8;
+      opacity: 0.85;
     }
     /* Rodapé */
     footer {
-      background-color: rgba(0, 50, 20, 0.9);
-      color: #d8f3dc;
+      background-color: rgba(66, 121, 111, 0.95);
+      color: #f8f4e3;
       text-align: center;
-      padding: 10px 15px;
-      font-size: 0.9em;
+      padding: 12px 15px;
+      font-size: 1em;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
+      border-top: 2px solid #f0d49c;
     }
     .footer-buttons {
       flex-grow: 1;
       text-align: center;
     }
     .footer-buttons button {
-      background-color: rgba(87, 140, 71, 0.8);
-      border: 1.5px solid #95d5b2;
-      color: #d8f3dc;
-      font-weight: 600;
-      padding: 8px 18px;
-      margin: 0 8px;
-      border-radius: 6px;
+      background-color: #a6c97a;
+      border: none;
+      color: #f8f4e3;
+      font-weight: 700;
+      padding: 9px 22px;
+      margin: 0 12px;
+      border-radius: 9px;
       cursor: pointer;
       transition: background-color 0.3s;
       font-size: 1em;
+      box-shadow: 0 3px 7px rgba(66, 121, 111, 0.5);
     }
     .footer-buttons button:hover {
-      background-color: #95d5b2;
-      color: #003300;
-      border-color: #95d5b2;
+      background-color: #6b8e23;
     }
     .footer-contact {
       font-family: 'Dancing Script', cursive;
       font-size: 1.1em;
-      color: #a7c957;
+      color: #f8f4e3;
       user-select: none;
-      min-width: 250px;
+      min-width: 280px;
       text-align: right;
+      font-weight: 600;
+      text-shadow: 0 0 4px #3a6351;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Um Gênio Confuso</h1>
-  <p>“Um mundo sobre outro mundo”</p>
+  <h1>Um futuro milionário</h1>
+  <p>Em apenas um click sua vida muda</p>
 </header>
 
 <nav>
@@ -192,7 +211,7 @@
 <main>
   <section id="home" class="active">
     <h2>Bem-vindo!</h2>
-    <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+    <p>Às vezes, as ideias mais brilhantes nascem do lugar mais inesperado. Não subestime o poder de um clique para transformar seu futuro.</p>
 
     <label for="pensamento" class="pensamento-label">Deixe seu pensamento aqui (qual o melhor livro que já leu?):</label>
     <textarea id="pensamento" class="pensamento-textarea" placeholder="Escreva aqui..."></textarea>
@@ -231,55 +250,20 @@
       <button class="btn access" id="access-btn-3" style="display:none;">Acessar Produto</button>
     </div>
 
-    <!-- Produtos 4 a 9, mantenha conforme seu código original -->
-  </section>
-</main>
+    <!-- Produto 4 -->
+    <div class="product">
+      <h3>Produto 4</h3>
+      <p>Descrição do produto 4, com detalhes importantes para o cliente.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/link4" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/link4" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <button class="btn access" id="access-btn-4" style="display:none;">Acessar Produto</button>
+    </div>
 
-<footer>
-  <div class="footer-buttons">
-    <button id="footer-btn-home">Home</button>
-    <button id="footer-btn-loja">Loja</button>
-  </div>
-  <div class="footer-contact">
-    Contato: contato@umgenioconfuso.com | Tel: (11) 99999-9999<br/>
-    <small style="font-family:'Dancing Script', cursive; font-size:1.2em; color:#a7c957;">Vitória Bonatto</small>
-  </div>
-</footer>
-
-<script>
-  // Selecionar elementos
-  const btnHome = document.getElementById('btn-home');
-  const btnLoja = document.getElementById('btn-loja');
-  const footerBtnHome = document.getElementById('footer-btn-home');
-  const footerBtnLoja = document.getElementById('footer-btn-loja');
-
-  const sectionHome = document.getElementById('home');
-  const sectionLoja = document.getElementById('loja');
-
-  function showSection(sectionToShow) {
-    if(sectionToShow === 'home') {
-      sectionHome.classList.add('active');
-      sectionLoja.classList.remove('active');
-      btnHome.classList.add('active');
-      btnLoja.classList.remove('active');
-      footerBtnHome.classList.add('active');
-      footerBtnLoja.classList.remove('active');
-    } else if(sectionToShow === 'loja') {
-      sectionHome.classList.remove('active');
-      sectionLoja.classList.add('active');
-      btnHome.classList.remove('active');
-      btnLoja.classList.add('active');
-      footerBtnHome.classList.remove('active');
-      footerBtnLoja.classList.add('active');
-    }
-  }
-
-  // Eventos para navegação
-  btnHome.addEventListener('click', () => showSection('home'));
-  btnLoja.addEventListener('click', () => showSection('loja'));
-  footerBtnHome.addEventListener('click', () => showSection('home'));
-  footerBtnLoja.addEventListener('click', () => showSection('loja'));
-</script>
-
-</body>
-</html>
+    <!-- Produto 5 -->
+    <div class="product">
+      <h3>Produto 5</h3>
+      <p>Descrição do produto 5, com detalhes importantes para o cliente.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/link5" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/link5" class="btn
