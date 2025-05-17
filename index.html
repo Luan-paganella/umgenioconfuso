@@ -7,52 +7,50 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000000; /* preto */
-      color: #c8a2c8; /* roxo suave */
+      font-family: 'Roboto', sans-serif;
+      background-color: #000000;
+      color: #ff0000; /* vermelho vivo */
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #1a001a; /* roxo escuro para topo */
-      padding: 15px 30px;
-      color: #c8a2c8;
-      font-weight: bold;
-      font-size: 1.5em;
+      text-align: center;
+      padding: 20px 10px 5px;
+      background-color: #000000;
     }
-    header .phrase {
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      color: #ff0000;
+    }
+    header p {
+      margin: 5px 0 15px;
+      font-size: 1.2em;
+      color: #ff0000;
       font-style: italic;
-      font-weight: normal;
-      font-size: 1em;
-      opacity: 0.8;
     }
     nav {
-      display: flex;
-      justify-content: center;
-      background-color: #2a002a; /* roxo médio */
-      padding: 10px 0;
-      gap: 40px;
+      text-align: center;
+      margin-bottom: 30px;
     }
     nav button {
       background-color: transparent;
-      border: 2px solid #c8a2c8;
-      color: #c8a2c8;
-      padding: 10px 20px;
+      border: 2px solid #ff0000;
+      color: #ff0000;
       font-size: 1.1em;
-      cursor: pointer;
+      padding: 10px 25px;
+      margin: 0 10px;
       border-radius: 6px;
+      cursor: pointer;
       transition: background-color 0.3s, color 0.3s;
     }
-    nav button:hover,
-    nav button.active {
-      background-color: #c8a2c8;
+    nav button.active,
+    nav button:hover {
+      background-color: #ff0000;
       color: #000;
     }
     main {
       max-width: 800px;
-      margin: 30px auto;
-      padding: 0 20px 40px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
     }
     section {
       display: none;
@@ -60,833 +58,205 @@
     section.active {
       display: block;
     }
-    .thought {
-      background-color: #1a001a;
-      border-left: 5px solid #c8a2c8;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 8px;
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
     }
-    .thought h2 {
-      margin-top: 0;
+    .redirect-btn {
+      background-color: transparent;
+      border: 2px solid #ff0000;
+      color: #ff0000;
+      font-weight: bold;
+      padding: 8px 18px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
     }
-    .store h2 {
-      margin-bottom: 20px;
-      font-size: 2em;
-      border-bottom: 2px solid #c8a2c8;
-      padding-bottom: 10px;
+    .redirect-btn:hover {
+      background-color: #ff0000;
+      color: #000;
     }
+    /* Produto e loja */
     .product {
-      background-color: #1a001a;
-      border-radius: 8px;
+      background-color: #111;
       padding: 20px;
+      border-radius: 8px;
       margin-bottom: 30px;
+      color: #ff4444;
     }
     .product h3 {
       margin-top: 0;
+      color: #ff6666;
     }
     .product p {
-      font-size: 1.1em;
-      margin: 10px 0 15px;
+      font-size: 1.05em;
     }
-    .price {
-      font-weight: bold;
-      font-size: 1.2em;
-      margin-bottom: 15px;
-      color: #dda0dd; /* tom suave de roxo */
-    }
-    .buttons a {
-      text-decoration: none;
+    .btn {
       display: inline-block;
+      text-decoration: none;
       padding: 10px 20px;
-      margin-right: 10px;
       border-radius: 6px;
+      margin: 10px 10px 0 0;
       font-weight: bold;
+      transition: 0.3s;
       color: #000;
-      transition: background-color 0.3s;
     }
-    .btn-pix {
-      background-color: #6bd26b; /* verde Pix */
+    .btn.pix {
+      background-color: #ff4d4d;
     }
-    .btn-pix:hover {
-      background-color: #4aa64a;
-      color: #fff;
+    .btn.card {
+      background-color: #cc0000;
     }
-    .btn-card {
-      background-color: #7b5fc1; /* roxo mais escuro */
+    .btn:hover {
+      opacity: 0.8;
     }
-    .btn-card:hover {
-      background-color: #5a45a0;
-      color: #fff;
-    }
-    /* Botão confirmar pagamento (admin) */
-    #confirm-payment {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #c8a2c8;
-      border: none;
-      padding: 12px 18px;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #c8a2c8aa;
-      transition: background-color 0.3s;
-      z-index: 100;
-    }
-    #confirm-payment:hover {
-      background-color: #dda0dd;
-    }
-    /* Botão secreto para acesso ao produto liberado */
-    #btn-secret {
-      display: none;
-      margin-top: 20px;
-      background-color: #dda0dd;
-      color: #000;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-      text-align: center;
-    }
-    #btn-secret:hover {
-      background-color: #c8a2c8;
+    /* Contato */
+    .contact-info p {
+      font-size: 1.1em;
+      margin: 10px 0;
+      color: #ff6666;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div>Um Gênio Confuso</div>
-    <div class="phrase">"Um mundo sobre outro mundo"</div>
-  </header>
-
-  <nav>
-    <button id="btn-home" class="active">Home</button>
-    <button id="btn-store">Loja</button>
-  </nav>
-
-  <main>
-    <section id="home" class="active">
-      <div class="thought">
-        <h2>Pensamento do Dia</h2>
-        <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
-      </div>
-      <div class="thought">
-        <h2>Reflexão Aleatória</h2>
-        <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
-      </div>
-      <div class="thought">
-        <h2>Pensamentos não lidos</h2>
-        <p>Aqui você verá os pensamentos ainda não explorados. (campo fixo)</p>
-      </div>
-    </section>
-
-    <section id="store">
-      <h2>📚 Loja</h2>
-
-      <div class="product">
-        <h3>Marketing Digital Descomplicado</h3>
-        <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-pix">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-card">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Bitcoin</h3>
-        <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-pix">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-card">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Marte</h3>
-        <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-pix">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-card">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Dropshipping</h3>
-        <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-pix">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-card">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Como se tornar um milionário com a internet</h3>
-        <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário. Com as estratégias certas, disciplina e conhecimento, qualquer pessoa pode aproveitar o poder do mundo digital para alcançar a liberdade financeira.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-pix">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn-card">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Brasil: Terra de diversidade e potencial</h3>
-        <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Um Gênio Confuso</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-  body {
-    margin: 0; font-family: 'Roboto', sans-serif;
-    background-color: #000;
-    color: #b39ddb;
-    display: flex;
-    height: 100vh;
-  }
-  /* Sidebar */
-  nav {
-    width: 200px;
-    background: #1a1a1a;
-    display: flex;
-    flex-direction: column;
-    padding-top: 80px;
-    box-sizing: border-box;
-  }
-  nav button {
-    background: transparent;
-    border: none;
-    color: #b39ddb;
-    font-size: 1.2em;
-    padding: 15px 20px;
-    text-align: left;
-    cursor: pointer;
-    border-left: 4px solid transparent;
-    transition: border-color 0.3s, background 0.3s;
-  }
-  nav button.active, nav button:hover {
-    border-left: 4px solid #9575cd;
-    background: #2e2e2e;
-  }
-
-  /* Header horizontal top */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 60px;
-    background: #000;
-    border-bottom: 1px solid #311b92;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    box-sizing: border-box;
-    color: #b39ddb;
-    font-weight: 700;
-    font-size: 1.5em;
-    z-index: 10;
-  }
-  header .title {
-    display: flex;
-    gap: 15px;
-    align-items: baseline;
-  }
-  header .title .name {
-    color: #7e57c2;
-    font-weight: 900;
-  }
-  header .title .phrase {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 0.9em;
-    color: #d1c4e9;
-  }
-
-  /* Main content */
-  main {
-    margin-left: 200px;
-    padding: 80px 30px 30px;
-    overflow-y: auto;
-    flex-grow: 1;
-    box-sizing: border-box;
-  }
-
-  /* Thought styles */
-  .thought {
-    background-color: #1a1a1a;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    border-left: 6px solid #9575cd;
-  }
-  .thought h2 {
-    margin-top: 0;
-    color: #d1c4e9;
-  }
-  .thought p {
-    font-size: 1.1em;
-    line-height: 1.4em;
-  }
-
-  /* Store */
-  .store h2 {
-    color: #9575cd;
-    margin-bottom: 25px;
-    font-size: 2em;
-  }
-  .product {
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 8px #311b92;
-  }
-  .product h3 {
-    margin-top: 0;
-    color: #b39ddb;
-  }
-  .product p {
-    margin: 10px 0;
-    font-size: 1.05em;
-    color: #ccc;
-  }
-  .product strong {
-    color: #d1c4e9;
-  }
-  .buttons {
-    margin-top: 15px;
-  }
-  .btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    margin-right: 10px;
-    font-weight: 700;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
-  }
-  .btn.pix {
-    background-color: #43a047;
-    color: white;
-  }
-  .btn.card {
-    background-color: #512da8;
-    color: white;
-  }
-  .btn:hover {
-    opacity: 0.85;
-  }
-
-  /* Botão secreto admin */
-  #adminBtn {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    background-color: #7e57c2;
-    color: white;
-    border: none;
-    padding: 14px 20px;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    z-index: 15;
-  }
-  /* Botão liberar acesso */
-  #secretAccessBtn {
-    display: none;
-    margin-top: 20px;
-    background-color: #512da8;
-    color: white;
-    border: none;
-    padding: 14px 20px;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-</style>
-</head>
-<body>
-
 <header>
-  <div class="title">
-    <div class="name">Um Gênio Confuso</div>
-    <div class="phrase">um mundo sobre outro mundo</div>
-  </div>
+  <h1>Um Gênio Confuso</h1>
+  <p>“Um mundo sobre outro mundo”</p>
 </header>
 
 <nav>
-  <button id="btnHome" class="active" onclick="showSection('home')">Home</button>
-  <button id="btnStore" onclick="showSection('store')">Loja</button>
+  <button id="btn-home" class="active">Home</button>
+  <button id="btn-loja">Loja</button>
+  <button id="btn-contato">Contato</button>
 </nav>
 
 <main>
-  <!-- Seção Home -->
-  <section id="home" style="display:block;">
-    <div class="thought">
-      <h2>Pensamentos não lidos</h2>
-      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
-    </div>
-    <div class="thought">
-      <h2>Reflexão Aleatória</h2>
-      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+  <section id="home" class="active">
+    <h2>Pensamento do Dia</h2>
+    <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+
+    <h2>Reflexão Aleatória</h2>
+    <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+
+    <div class="buttons">
+      <button class="redirect-btn" onclick="showSection('loja')">Ir para Loja</button>
+      <button class="redirect-btn" onclick="showSection('contato')">Ir para Contato</button>
     </div>
   </section>
 
-  <!-- Seção Loja -->
-  <section id="store" style="display:none;">
+  <section id="loja">
     <h2>📚 Loja</h2>
 
     <div class="product">
       <h3>Marketing Digital Descomplicado</h3>
       <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
       <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
-      </div>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Bitcoin</h3>
       <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
       <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
-      </div>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Marte</h3>
       <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
       <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
-      </div>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Dropshipping</h3>
       <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
       <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
-      </div>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Como se tornar um milionário com a internet</h3>
       <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário. Com as estratégias certas, disciplina e conhecimento, qualquer pessoa pode aproveitar o poder do mundo digital para alcançar a liberdade financeira.</p>
       <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
-      </div>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Brasil: Terra de diversidade e potencial</h3>
       <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
-      <p><strong>
-        
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Um Gênio Confuso</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #0d0d0d;
-      color: #e0e0e0;
-    }
-    header {
-      text-align: center;
-      padding: 30px 20px 10px;
-      background-color: #111;
-    }
-    header h1 {
-      font-size: 2.8em;
-      margin: 0;
-      color: #bb86fc;
-    }
-    header p {
-      font-size: 1.2em;
-      margin: 5px 0 20px;
-      color: #999;
-      font-style: italic;
-    }
-    nav {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    nav button {
-      background-color: #bb86fc;
-      color: #0d0d0d;
-      border: none;
-      padding: 12px 24px;
-      margin: 0 10px;
-      font-size: 1em;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    nav button:hover {
-      background-color: #9e6de0;
-    }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: none;
-    }
-    section.active {
-      display: block;
-    }
-    .thought, .product {
-      background-color: #1e1e1e;
-      border-left: 4px solid #bb86fc;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 8px;
-    }
-    .thought h2, .product h3 {
-      color: #bb86fc;
-      margin-top: 0;
-    }
-    .buttons {
-      margin-top: 15px;
-    }
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      margin-right: 10px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn.pix {
-      background-color: #43a047;
-      color: white;
-    }
-    .btn.card {
-      background-color: #3949ab;
-      color: white;
-    }
-    .btn:hover {
-      opacity: 0.8;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #666;
-      border-top: 1px solid #333;
-      margin-top: 60px;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Um Gênio Confuso</h1>
-    <p>"Um mundo sobre outro mundo"</p>
-    <nav>
-      <button onclick="showSection('home')">Home</button>
-      <button onclick="showSection('loja')">Loja</button>
-    </nav>
-  </header>
-
-  <section id="home" class="active">
-    <div class="thought">
-      <h2>Pensamento do Dia</h2>
-      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
-    </div>
-    <div class="thought">
-      <h2>Reflexão Aleatória</h2>
-      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
-    </div>
-  </section>
-
-  <section id="loja">
-    <div class="product">
-      <h3>Marketing Digital Descomplicado</h3>
-      <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender.</p>
       <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
-    <!-- Você pode continuar colando os outros produtos aqui com a mesma estrutura -->
+
+    <div class="buttons">
+      <button class="redirect-btn" onclick="showSection('home')">Ir para Home</button>
+      <button class="redirect-btn" onclick="showSection('contato')">Ir para Contato</button>
+    </div>
   </section>
 
-  <footer>
-    &copy; 2025 Um Gênio Confuso. Todos os direitos reservados.
-  </footer>
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> luanpaganella59@gmail.com</p>
+      <p><strong>Telefone:</strong> 51 99779-5994</p>
+      <p><strong>Estado:</strong> Rio Grande do Sul</p>
+    </div>
 
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    <div class="buttons">
+      <button class="redirect-btn" onclick="showSection('home')">Ir para Home</button>
+      <button class="redirect-btn" onclick="showSection('loja')">Ir para Loja</button>
+    </div>
+  </section>
+</main>
+
+<script>
+  const btnHome = document.getElementById('btn-home');
+  const btnLoja = document.getElementById('btn-loja');
+  const btnContato = document.getElementById('btn-contato');
+  const sections = {
+    home: document.getElementById('home'),
+    loja: document.getElementById('loja'),
+    contato: document.getElementById('contato')
+  };
+
+  function setActiveButton(activeBtn) {
+    [btnHome, btnLoja, btnContato].forEach(btn => {
+      btn.classList.remove('active');
+    });
+    activeBtn.classList.add('active');
+  }
+
+  function showSection(sectionName) {
+    for (const key in sections) {
+      if (key === sectionName) {
+        sections[key].classList.add('active');
+      } else {
+        sections[key].classList.remove('active');
+      }
     }
-  </script>
+    // Atualiza os botões do menu principal
+    if(sectionName === 'home') setActiveButton(btnHome);
+    else if(sectionName === 'loja') setActiveButton(btnLoja);
+    else if(sectionName === 'contato') setActiveButton(btnContato);
+    window.scrollTo(0,0);
+  }
+
+  btnHome.addEventListener('click', () => showSection('home'));
+  btnLoja.addEventListener('click', () => showSection('loja'));
+  btnContato.addEventListener('click', () => showSection('contato'));
+
+  // Inicializa na Home
+  showSection('home');
+</script>
 
 </body>
 </html>
-<style>
-  .btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    margin-right: 10px;
-    font-weight: bold;
-    transition: 0.3s;
-    background-color: #7f39fb;
-    color: #fff;
-    border: none;
-  }
-  .btn.pix {
-    background-color: #9c47fc;
-  }
-  .btn.card {
-    background-color: #bb86fc;
-  }
-  .btn:hover {
-    opacity: 0.85;
-    filter: brightness(1.1);
-  }
-</style>
-<div class="buttons">
-  <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-  <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-</div>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Um Gênio Confuso</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    /* Reset e base */
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #000000;
-      color: #e0e0e0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 15px 40px;
-    }
-    header {
-      width: 100%;
-      max-width: 900px;
-      padding: 20px 0 5px;
-      text-align: center;
-      border-bottom: 1px solid #660000;
-      user-select: none;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      color: #ff0000;
-      font-weight: 700;
-    }
-    header p {
-      margin: 4px 0 15px;
-      font-style: italic;
-      font-weight: 500;
-      color: #ff3333;
-      font-size: 1.3em;
-    }
-    nav {
-      width: 100%;
-      max-width: 900px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
-      user-select: none;
-    }
-    nav button {
-      background-color: transparent;
-      border: 2px solid #ff0000;
-      border-radius: 6px;
-      color: #ff0000;
-      font-weight: 700;
-      font-size: 1.1em;
-      padding: 10px 22px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-      min-width: 90px;
-    }
-    nav button:hover {
-      background-color: #ff0000;
-      color: #000;
-    }
-    main {
-      width: 100%;
-      max-width: 900px;
-      background-color: #111;
-      border-radius: 8px;
-      padding: 25px 30px;
-      box-shadow: 0 0 12px #660000cc;
-      min-height: 350px;
-    }
-    /* Conteúdos das abas */
-    section {
-      display: none;
-    }
-    section.active {
-      display: block;
-    }
-    /* Loja */
-    .product {
-      background-color: #222;
-      padding: 18px 22px;
-      border-radius: 8px;
-      margin-bottom: 28px;
-      box-shadow: 0 0 8px #ff000080;
-    }
-    .product h3 {
-      color: #ff4d4d;
-      margin-top: 0;
-    }
-    .product p {
-      font-size: 1.05em;
-      line-height: 1.4;
-      margin: 10px 0 14px;
-      color: #ddd;
-    }
-    .price {
-      font-weight: 700;
-      font-size: 1.15em;
-      margin-bottom: 12px;
-      color: #ff0000;
-    }
-    .buttons {
-      display: flex;
-      gap: 12px;
-    }
-    .btn {
-      flex: 1;
-      text-align: center;
-      padding: 10px 0;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1em;
-      user-select: none;
-      transition: background-color 0.3s;
-      color: #fff;
-      background-color: #660000;
-      border: 2px solid #ff0000;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background-color: #ff0000;
-      color: #000;
-    }
-    /* Contato */
-    .contact-info p {
-      margin: 8px 0;
-      font-size: 1.1em;
-      color: #ff3333;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Um Gênio Confuso</h1>
-    <p>"Um mundo sobre outro mundo"</p>
-  </header>
-
-  <nav id="tab-buttons">
-    <!-- Botões aparecem aqui dinamicamente -->
-  </nav>
-
-  <main>
-    <section id="home" class="active">
-      <h2 style="color:#ff0000;">Home</h2>
-      <div class="thought">
-        <h3 style="color:#ff4d4d;">Pensamento do Dia</h3>
-        <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
-      </div>
-      <div class="thought">
-        <h3 style="color:#ff4d4d;">Reflexão Aleatória</h3>
-        <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
-      </div>
-    </section>
-
-    <section id="loja">
-      <h2 style="color:#ff0000;">📚 Loja</h2>
-
-      <div class="product">
-        <h3>Marketing Digital Descomplicado</h3>
-        <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Bitcoin</h3>
-        <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Marte</h3>
-        <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Dropshipping</h3>
-        <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
-        <p class="price">R$ 29,90</p>
-        <div class="buttons">
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-          <a href="https://mpago.la/1C8AxnW" class="btn" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Como se tornar um milionário com a internet</h3>
-        <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário
