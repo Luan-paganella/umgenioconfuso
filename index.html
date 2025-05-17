@@ -506,3 +506,180 @@
       <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
       <p><strong>
         
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Um Gênio Confuso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+    }
+    header {
+      text-align: center;
+      padding: 30px 20px 10px;
+      background-color: #111;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin: 0;
+      color: #bb86fc;
+    }
+    header p {
+      font-size: 1.2em;
+      margin: 5px 0 20px;
+      color: #999;
+      font-style: italic;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    nav button {
+      background-color: #bb86fc;
+      color: #0d0d0d;
+      border: none;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    nav button:hover {
+      background-color: #9e6de0;
+    }
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    .thought, .product {
+      background-color: #1e1e1e;
+      border-left: 4px solid #bb86fc;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+    }
+    .thought h2, .product h3 {
+      color: #bb86fc;
+      margin-top: 0;
+    }
+    .buttons {
+      margin-top: 15px;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-right: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn.pix {
+      background-color: #43a047;
+      color: white;
+    }
+    .btn.card {
+      background-color: #3949ab;
+      color: white;
+    }
+    .btn:hover {
+      opacity: 0.8;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #333;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Um Gênio Confuso</h1>
+    <p>"Um mundo sobre outro mundo"</p>
+    <nav>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('loja')">Loja</button>
+    </nav>
+  </header>
+
+  <section id="home" class="active">
+    <div class="thought">
+      <h2>Pensamento do Dia</h2>
+      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+    </div>
+    <div class="thought">
+      <h2>Reflexão Aleatória</h2>
+      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+    </div>
+  </section>
+
+  <section id="loja">
+    <div class="product">
+      <h3>Marketing Digital Descomplicado</h3>
+      <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <div class="buttons">
+        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
+        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
+      </div>
+    </div>
+    <!-- Você pode continuar colando os outros produtos aqui com a mesma estrutura -->
+  </section>
+
+  <footer>
+    &copy; 2025 Um Gênio Confuso. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
+<style>
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    background-color: #7f39fb;
+    color: #fff;
+    border: none;
+  }
+  .btn.pix {
+    background-color: #9c47fc;
+  }
+  .btn.card {
+    background-color: #bb86fc;
+  }
+  .btn:hover {
+    opacity: 0.85;
+    filter: brightness(1.1);
+  }
+</style>
+<div class="buttons">
+  <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
+  <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
+</div>
