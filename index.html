@@ -4,229 +4,179 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Um Gênio Confuso</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #000;
-      color: #ddd;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000; /* preto */
+      color: #c8a2c8; /* roxo suave */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
     }
     header {
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #bb86fc;
-    }
-    header p {
-      margin: 5px 0 15px;
-      font-style: italic;
-      color: #aaa;
-    }
-    nav {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    nav a {
-      display: inline-block;
-      margin: 10px 15px;
-      padding: 10px 20px;
-      background-color: #2a2a2a;
-      color: #bb86fc;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      background-color: #3b3b3b;
-    }
-    section {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-    .thought {
-      background-color: #1a1a1a;
-      padding: 20px;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #c8a2c8;
+      padding-bottom: 10px;
       margin-bottom: 20px;
-      border-left: 4px solid #bb86fc;
-      border-radius: 5px;
+    }
+    header .title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    header .subtitle {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #aa88bb;
+      user-select: none;
+    }
+
+    nav {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    nav button {
+      background-color: transparent;
+      border: 2px solid #c8a2c8;
+      color: #c8a2c8;
+      font-weight: 600;
+      padding: 10px 30px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav button.active,
+    nav button:hover {
+      background-color: #c8a2c8;
+      color: #000;
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* Seções ocultas e visíveis */
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+
+    /* Pensamentos (Home) */
+    .thought {
+      background-color: #1a001a;
+      border-left: 5px solid #c8a2c8;
+      padding: 20px 25px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      line-height: 1.4;
     }
     .thought h2 {
-      margin-top: 0;
-      color: #bb86fc;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #e6ccf3;
     }
-    .store h2 {
-      color: #bb86fc;
-      border-bottom: 2px solid #bb86fc;
-      padding-bottom: 10px;
-      margin-top: 50px;
+
+    /* Loja */
+    .store {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
     }
     .product {
-      background-color: #1a1a1a;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 5px;
+      background-color: #1a001a;
+      border-radius: 8px;
+      padding: 20px 25px;
+      box-shadow: 0 0 10px #300030;
     }
     .product h3 {
-      margin-top: 0;
-      color: #bb86fc;
+      color: #e6ccf3;
+      margin-bottom: 8px;
+      font-size: 1.5rem;
     }
     .product p {
-      margin: 10px 0;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .price {
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      color: #dda0dd;
     }
     .buttons {
-      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
     .btn {
-      display: inline-block;
-      padding: 10px 15px;
-      margin-right: 10px;
-      border-radius: 4px;
+      background-color: #c8a2c8;
+      border: none;
+      color: #000;
+      padding: 10px 18px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn.pix {
-      background-color: #43a047;
-      color: white;
-    }
-    .btn.card {
-      background-color: #3949ab;
-      color: white;
+      transition: background-color 0.25s;
+      display: inline-block;
+      user-select: none;
     }
     .btn:hover {
-      opacity: 0.8;
+      background-color: #aa88bb;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #666;
-      border-top: 1px solid #333;
+
+    /* Botão de liberar conteúdo (escondido) */
+    #unlock-button {
+      margin-top: 30px;
+      background-color: #7f5f9f;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      user-select: none;
     }
-  </style>
-</head>
-<body>
+    #unlock-button:hover {
+      background-color: #b08bd8;
+      color: #000;
+    }
 
-  <header>
-    <h1>Um Gênio Confuso</h1>
-    <p>"Um mundo sobre outro mundo"</p>
-  </header>
-
-  <nav>
-    <a href="#home">🏠 Home</a>
-    <a href="#loja">🛒 Loja</a>
-  </nav>
-
-  <section id="home">
-    <div class="thought">
-      <h2>Pensamento do Dia</h2>
-      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
-    </div>
-    <div class="thought">
-      <h2>Reflexão Aleatória</h2>
-      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
-    </div>
-  </section>
-
-  <section class="store" id="loja">
-    <h2>📚 Loja</h2>
-
-    <!-- Produto 1 -->
-    <div class="product">
-      <h3>Marketing Digital Descomplicado</h3>
-      <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-
-    <!-- Produto 2 -->
-    <div class="product">
-      <h3>Bitcoin</h3>
-      <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-
-    <!-- Produto 3 -->
-    <div class="product">
-      <h3>Marte</h3>
-      <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-
-    <!-- Produto 4 -->
-    <div class="product">
-      <h3>Dropshipping</h3>
-      <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-
-    <!-- Produto 5 -->
-    <div class="product">
-      <h3>Como se tornar um milionário com a internet</h3>
-      <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário. Com as estratégias certas, disciplina e conhecimento, qualquer pessoa pode aproveitar o poder do mundo digital para alcançar a liberdade financeira.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-
-    <!-- Produto 6 -->
-    <div class="product">
-      <h3>Brasil: Terra de diversidade e potencial</h3>
-      <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-
-    <!-- Produto 7 -->
-    <div class="product">
-      <h3>A vida fora d’Terra</h3>
-      <p>A busca por vida fora da Terra é uma das perguntas mais antigas e fascinantes da humanidade. Desde os primeiros olhares curiosos para o céu estrelado até as modernas missões espaciais, queremos saber: estamos sozinhos no universo?</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-
-    <!-- Produto 8 -->
-    <div class="product">
-      <h3>Curiosidades dos Milionários</h3>
-      <p>Milionários sempre despertaram curiosidade pela forma como vivem, pensam e agem no dia a dia. Muitos acreditam que a fortuna vem só da sorte, mas a realidade mostra que há hábitos, mentalidades e decisões que fazem toda a diferença.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <div class="buttons">
-        <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank">💸 Pagar via Pix</a>
-        <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank">💳 Pagar com Cartão</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Um Gênio Confuso. Todos os direitos reservados.
-  </footer>
-</body>
-</html>
+    /* Modal senha */
+    #password-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #password-modal.active {
+      display: flex;
+    }
+    #password-box {
+      background
