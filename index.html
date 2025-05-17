@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: 
+      background:
         url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #222;
@@ -20,7 +20,7 @@
     header {
       text-align: center;
       padding: 20px 10px 5px;
-      background-color: rgba(255 255 255 / 0.8);
+      background-color: rgba(255 255 255 / 0.85);
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     header h1 {
@@ -37,12 +37,15 @@
     nav {
       text-align: center;
       margin-bottom: 20px;
-      background-color: rgba(255 255 255 / 0.8);
+      background-color: rgba(255 255 255 / 0.85);
       box-shadow: 0 1px 5px rgba(0,0,0,0.1);
       padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    nav button {
-      background-color: transparent;
+    nav a {
+      text-decoration: none;
       border: 2px solid #6666aa;
       color: #6666aa;
       font-size: 1.1em;
@@ -50,48 +53,30 @@
       margin: 0 10px;
       border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
       font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
     }
-    nav button.active,
-    nav button:hover {
+    nav a:hover,
+    nav a:focus {
       background-color: #6666aa;
       color: #fff;
+      outline: none;
     }
     main {
       flex-grow: 1;
       max-width: 800px;
       margin: 0 auto 60px;
       padding: 0 20px;
-      background-color: rgba(255 255 255 / 0.85);
+      background-color: rgba(255 255 255 / 0.9);
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
     section {
-      display: none;
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
     }
-    section.active {
-      display: block;
-    }
-    .buttons-footer {
-      text-align: center;
-      margin: 15px 0;
-    }
-    .redirect-btn {
-      background-color: transparent;
-      border: 2px solid #6666aa;
-      color: #6666aa;
-      font-weight: bold;
-      padding: 8px 18px;
-      margin: 0 8px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-      min-width: 90px;
-    }
-    .redirect-btn:hover {
-      background-color: #6666aa;
-      color: #fff;
+    section:last-child {
+      border-bottom: none;
     }
     /* Produto e loja */
     .product {
@@ -173,7 +158,7 @@
     /* Rodapé */
     footer {
       background-color: rgba(255 255 255 / 0.9);
-      padding: 10px 20px;
+      padding: 8px 15px;
       text-align: center;
       font-size: 0.9em;
       color: #666;
@@ -181,9 +166,25 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 10px;
+      flex-wrap: nowrap;
       user-select: none;
+    }
+    footer a {
+      border: 2px solid #6666aa;
+      color: #6666aa;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1em;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    footer a:hover,
+    footer a:focus {
+      background-color: #6666aa;
+      color: #fff;
+      outline: none;
     }
   </style>
 </head>
@@ -195,13 +196,13 @@
 </header>
 
 <nav>
-  <button id="btn-home" class="active">Home</button>
-  <button id="btn-loja">Loja</button>
-  <button id="btn-contato">Contato</button>
+  <a href="#home" id="link-home">Home</a>
+  <a href="#loja" id="link-loja">Loja</a>
+  <a href="#contato" id="link-contato">Contato</a>
 </nav>
 
 <main>
-  <section id="home" class="active">
+  <section id="home">
     <h2>Pensamento do Dia</h2>
     <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
 
@@ -232,4 +233,102 @@
       <h3>Bitcoin</h3>
       <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Storytelling</h3>
+      <p>Storytelling é a arte de contar histórias para conectar, emocionar e vender. Aprenda a construir narrativas poderosas que vão prender a atenção do seu público e transformar sua comunicação em resultados reais.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Psicologia da Venda</h3>
+      <p>Entenda os gatilhos mentais e estratégias psicológicas que influenciam as decisões de compra. Este livro traz insights valiosos para quem quer vender mais e melhor.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Marketing de Conteúdo</h3>
+      <p>Aprenda a criar conteúdos que engajam, educam e convertem seu público-alvo. O marketing de conteúdo é a base do marketing digital moderno.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>SEO para Iniciantes</h3>
+      <p>Descubra como otimizar seu site para motores de busca e aumentar o tráfego orgânico. Técnicas simples e práticas para começar hoje mesmo.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Copywriting</h3>
+      <p>Aprenda a escrever textos persuasivos que vendem, influenciam e conectam com o seu público. Técnicas usadas por profissionais para aumentar conversões.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Funil de Vendas</h3>
+      <p>Compreenda as etapas do funil de vendas e como guiar seus clientes da descoberta até a compra com eficiência.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+
+    <div class="product">
+      <h3>Instagram para Negócios</h3>
+      <p>Dicas práticas para usar o Instagram como ferramenta de marketing e vendas, criando uma presença forte e engajada.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> contato@umgenioconfuso.com</p>
+      <p><strong>Telefone:</strong> (11) 91234-5678</p>
+      <p><strong>Endereço:</strong> Rua dos Gênios, 123 - São Paulo, SP</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="#home">Home</a>
+  <a href="#loja">Loja</a>
+  <a href="#contato">Contato</a>
+  <span>© Paganella</span>
+</footer>
+
+<script>
+  // Código para lidar com o livro indicado pelo usuário e armazenar na lista abaixo
+  const submitBtn = document.getElementById('submitBook');
+  const bookInput = document.getElementById('bookInput');
+  const bookList = document.getElementById('bookList');
+
+  submitBtn.addEventListener('click', () => {
+    const bookTitle = bookInput.value.trim();
+    if(bookTitle) {
+      const li = document.createElement('li');
+      li.textContent = bookTitle;
+      bookList.appendChild(li);
+      bookInput.value = '';
+    } else {
+      alert('Por favor, escreva o título do livro antes de enviar.');
+    }
+  });
+</script>
+
+</body>
+</html>
