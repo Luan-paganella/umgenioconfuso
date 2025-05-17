@@ -3,232 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Um Gênio Confuso</title>
+  <title>Um Gênio Confuso - Tema Natureza</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-    :root {
-      --verde-escuro: #2c5d3f;
-      --verde-suave: #497c5a;
-      --marrom: #7b4f24;
-      --bege: #e8d5b7;
-      --verde-clarinho: #a6c48a;
-      --botao-bg: #497c5a;
-      --botao-hover: #2c5d3f;
-      --texto-principal: #2c5d3f;
-    }
-
     * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(180deg, #d3e5d0 0%, #a6c48a 100%);
-      color: var(--texto-principal);
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
-    /* Fundo árvores e galhos 3D simulados */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      pointer-events: none;
-      background:
-        url('https://i.ibb.co/xCqJzTJ/galho1.png') no-repeat 5% 15%,
-        url('https://i.ibb.co/n8XXC2N/galho2.png') no-repeat 90% 10%,
-        url('https://i.ibb.co/GTW2MTQ/arvore1.png') no-repeat center bottom;
-      background-size: 120px auto, 150px auto, 400px auto;
-      opacity: 0.15;
-      z-index: 0;
-      mix-blend-mode: multiply;
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #e6f2e6;
+      color: #2e3d21;
+      min-height: 100vh;
+      background-image:
+        url('https://cdn.pixabay.com/photo/2016/02/13/12/26/branch-1197936_960_720.png'),
+        url('https://cdn.pixabay.com/photo/2016/02/13/12/26/branch-1197935_960_720.png'),
+        url('https://cdn.pixabay.com/photo/2013/07/13/11/45/trees-157881_960_720.png');
+      background-repeat: no-repeat, no-repeat, repeat;
+      background-position: left top, right bottom, center bottom;
+      background-size: 150px 150px, 150px 150px, cover;
+      transition: background-color 0.5s ease;
+      padding-bottom: 90px; /* espaço para o footer */
     }
 
     header {
       text-align: center;
-      padding: 25px 10px 10px;
-      background-color: var(--bege);
-      box-shadow: 0 4px 10px rgba(43, 66, 49, 0.3);
-      position: relative;
-      z-index: 10;
+      padding: 30px 15px 10px;
+      background: #d0e6c8dd;
+      border-bottom: 3px solid #557a3a;
     }
+
     header h1 {
-      margin: 0;
-      font-size: 3em;
-      color: var(--verde-escuro);
-      text-shadow: 1px 1px 1px #9fbf91;
+      font-size: 2.8em;
+      color: #3a5f0b;
+      margin-bottom: 8px;
     }
     header p {
-      margin: 5px 0 20px;
-      font-size: 1.3em;
-      color: var(--marrom);
       font-style: italic;
-      text-shadow: 1px 1px 1px #d8d1b0;
+      font-size: 1.3em;
+      color: #4a6a20;
     }
 
     nav {
+      margin-top: 10px;
       text-align: center;
-      margin-bottom: 35px;
-      background-color: var(--bege);
+      background: #a3c78fdd;
       padding: 15px 0;
-      box-shadow: 0 2px 8px rgba(43, 66, 49, 0.2);
-      position: relative;
-      z-index: 10;
+      border-bottom: 2px solid #557a3a;
     }
+
     nav button {
-      background-color: var(--botao-bg);
-      border: none;
-      color: var(--bege);
-      font-size: 1.15em;
-      padding: 12px 30px;
+      background-color: transparent;
+      border: 2px solid #557a3a;
+      color: #557a3a;
+      font-weight: 600;
+      font-size: 1.1em;
+      padding: 10px 28px;
       margin: 0 12px;
-      border-radius: 25px;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 3px 5px rgba(39, 78, 52, 0.6);
-      transition: background-color 0.3s, box-shadow 0.3s;
-      font-weight: 700;
-      font-family: 'Roboto', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
     }
+
+    nav button.active,
     nav button:hover {
-      background-color: var(--botao-hover);
-      box-shadow: 0 6px 12px rgba(25, 50, 35, 0.9);
-    }
-    nav button.active {
-      background-color: var(--verde-escuro);
-      box-shadow: 0 6px 15px rgba(25, 50, 35, 0.9);
+      background-color: #557a3a;
+      color: #d0e6c8;
     }
 
     main {
       max-width: 900px;
-      margin: 0 auto 70px;
+      margin: 40px auto 60px;
       padding: 0 20px;
-      position: relative;
-      z-index: 10;
+      background: #f1f9e9cc;
+      border-radius: 12px;
+      box-shadow: 0 6px 10px rgba(70, 90, 20, 0.25);
     }
+
     section {
       display: none;
+      animation: fadeIn 0.5s ease forwards;
     }
     section.active {
       display: block;
-      animation: fadeIn 0.7s ease-in-out;
     }
+
     @keyframes fadeIn {
       from {opacity: 0;}
-      to {opacity:1;}
+      to {opacity: 1;}
     }
 
-    .buttons {
-      margin-top: 25px;
-      text-align: center;
-    }
-    .redirect-btn {
-      background-color: var(--botao-bg);
-      border: none;
-      color: var(--bege);
-      font-weight: 700;
-      padding: 10px 24px;
-      margin: 8px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 1.05em;
-      box-shadow: 0 3px 8px rgba(39, 78, 52, 0.7);
-      transition: background-color 0.3s, box-shadow 0.3s;
-      font-family: 'Roboto', sans-serif;
-    }
-    .redirect-btn:hover {
-      background-color: var(--botao-hover);
-      box-shadow: 0 6px 15px rgba(25, 50, 35, 0.9);
-    }
-
+    /* Produtos */
     .product {
-      background-color: #f0f5e8cc;
-      padding: 22px 20px;
+      background-color: #9fbe8fdd;
+      padding: 20px;
       border-radius: 10px;
-      margin-bottom: 28px;
-      box-shadow: 0 2px 6px rgba(50, 80, 45, 0.2);
-      color: var(--verde-escuro);
-      transition: box-shadow 0.3s ease;
-    }
-    .product:hover {
-      box-shadow: 0 5px 20px rgba(50, 80, 45, 0.4);
+      margin-bottom: 30px;
+      color: #2e3d21;
+      box-shadow: inset 0 0 8px #557a3a66;
     }
     .product h3 {
       margin-top: 0;
-      color: var(--marrom);
-      font-weight: 700;
-      text-shadow: 0 1px 1px #c1b393aa;
+      color: #41621d;
     }
     .product p {
-      font-size: 1.07em;
-      line-height: 1.4em;
-      margin: 10px 0 15px;
-      color: var(--verde-escuro);
+      font-size: 1.05em;
+      margin-bottom: 10px;
     }
-    .price {
-      font-weight: 800;
-      font-size: 1.25em;
-      color: var(--marrom);
-      margin-bottom: 12px;
-    }
+
     .btn {
       display: inline-block;
       text-decoration: none;
-      padding: 10px 22px;
-      border-radius: 25px;
-      margin: 8px 10px 0 0;
+      padding: 11px 24px;
+      border-radius: 8px;
+      margin: 10px 10px 0 0;
       font-weight: 700;
-      font-family: 'Roboto', sans-serif;
-      cursor: pointer;
-      box-shadow: 0 3px 6px rgba(39, 78, 52, 0.8);
-      transition: background-color 0.3s ease;
-      color: var(--bege);
+      transition: 0.3s;
+      color: #d0e6c8;
+      box-shadow: 0 3px 6px rgba(45, 80, 15, 0.5);
       user-select: none;
     }
     .btn.pix {
-      background-color: #4a7c3a;
+      background-color: #557a3a;
     }
     .btn.card {
-      background-color: #35692e;
+      background-color: #3a5f0b;
     }
-    .btn.pix:hover {
-      background-color: #2c5d1f;
-      box-shadow: 0 6px 14px rgba(25, 40, 15, 0.9);
-    }
-    .btn.card:hover {
-      background-color: #1f4111;
-      box-shadow: 0 6px 14px rgba(10, 25, 5, 0.9);
+    .btn:hover {
+      opacity: 0.85;
     }
 
+    /* Contato */
     .contact-info p {
       font-size: 1.15em;
-      margin: 14px 0;
-      color: var(--verde-escuro);
-      font-weight: 600;
-    }
-    .contact-info strong {
-      color: var(--marrom);
-      font-weight: 700;
-      text-shadow: 1px 1px 0 #c1b393bb;
+      margin: 12px 0;
+      color: #41621d;
     }
 
-    @media (max-width: 600px) {
-      nav button {
-        padding: 10px 15px;
-        margin: 5px 8px;
-        font-size: 1em;
-      }
-      main {
-        padding: 0 15px;
-      }
-      .btn {
-        padding: 8px 16px;
-        font-size: 0.95em;
-      }
+    /* Footer com botões e assinatura */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #a3c78fdd;
+      border-top: 3px solid #557a3a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      box-shadow: 0 -3px 10px rgba(70, 90, 20, 0.3);
+      font-size: 1em;
+      color: #3a5f0b;
+      user-select: none;
+      z-index: 1000;
     }
+
+    .footer-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .redirect-btn {
+      background-color: transparent;
+      border: 2px solid #557a3a;
+      color: #557a3a;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 1em;
+    }
+
+    .redirect-btn:hover {
+      background-color: #557a3a;
+      color: #d0e6c8;
+    }
+
+    .signature {
+      font-style: italic;
+      font-weight: 600;
+      color: #41621d;
+    }
+
   </style>
 </head>
 <body>
@@ -239,107 +198,119 @@
 </header>
 
 <nav>
-  <button id="btn-home" class="active">Home</button>
-  <button id="btn-loja">Loja</button>
-  <button id="btn-contato">Contato</button>
+  <button id="btn-home" class="active" aria-label="Ir para Home">Home</button>
+  <button id="btn-loja" aria-label="Ir para Loja">Loja</button>
+  <button id="btn-contato" aria-label="Ir para Contato">Contato</button>
 </nav>
 
 <main>
-  <!-- HOME -->
-  <section id="home" class="active">
+  <section id="home" class="active" tabindex="0" aria-label="Seção Home">
     <h2>Pensamento do Dia</h2>
     <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
 
     <h2>Reflexão Aleatória</h2>
     <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
-
-    <div class="buttons">
-      <button class="redirect-btn" onclick="showSection('loja')">Ir para Loja</button>
-      <button class="redirect-btn" onclick="showSection('contato')">Ir para Contato</button>
-    </div>
   </section>
 
-  <!-- LOJA -->
-  <section id="loja">
+  <section id="loja" tabindex="0" aria-label="Seção Loja">
     <h2>📚 Loja</h2>
 
     <div class="product">
       <h3>Marketing Digital Descomplicado</h3>
       <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer" aria-label="Pagar Marketing Digital Descomplicado via Pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer" aria-label="Pagar Marketing Digital Descomplicado com Cartão">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Bitcoin</h3>
       <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer" aria-label="Pagar Bitcoin via Pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer" aria-label="Pagar Bitcoin com Cartão">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Marte</h3>
       <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer" aria-label="Pagar Marte via Pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer" aria-label="Pagar Marte com Cartão">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Dropshipping</h3>
-      <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o lojista não precisa manter estoque. Ele faz a venda e repassa o pedido para o fornecedor, que é quem envia o produto diretamente para o cliente. É uma forma prática de começar a vender online com baixo investimento inicial.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer" aria-label="Pagar Dropshipping via Pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer" aria-label="Pagar Dropshipping com Cartão">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
-      <h3>O Poder do Mindset</h3>
-      <p>O mindset é a mentalidade com a qual encaramos desafios, aprendizados e mudanças. Ter um mindset de crescimento é fundamental para o sucesso pessoal e profissional, pois permite aprender com os erros, superar limitações e evoluir constantemente.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Inteligência Artificial para Negócios</h3>
-      <p>Este livro apresenta as principais aplicações da inteligência artificial no mundo dos negócios, mostrando como a automação, análise de dados e aprendizado de máquina podem transformar estratégias e resultados.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Design Thinking</h3>
-      <p>Design Thinking é uma abordagem criativa para a solução de problemas, centrada no ser humano. Este livro explica os passos dessa metodologia, estimulando inovação e colaboração em projetos e negócios.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Produtividade Máxima</h3>
-      <p>Quer aprender a gerir melhor seu tempo e energia? Este livro traz técnicas e hábitos para aumentar a produtividade, focar no que importa e evitar distrações no dia a dia.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Empreendedorismo Digital</h3>
-      <p>Explore o universo dos negócios digitais, entendendo como criar, lançar e escalar produtos e serviços online com estratégias eficazes e baixo custo inicial.</p>
-      <p class="price">R$ 29,90</p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <h3>Como se tornar um milionário com a internet</h3>
+      <p>Um guia direto para alcançar liberdade financeira usando as ferramentas e estratégias digitais mais eficazes no mercado atual.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer" aria-label="Pagar Como se tornar um milionário com a internet via Pix">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer" aria-label="Pagar Como se tornar um milionário com a internet com Cartão">💳 Pagar com Cartão</a>
     </div>
   </section>
 
-  <!-- CONTATO -->
-  <section id="contato">
+  <section id="contato" tabindex="0" aria-label="Seção Contato">
     <h2>Contato</h2>
     <div class="contact-info">
-      <p><strong>Email:</strong> contato@umgenioconfuso.com</p>
-      <p><strong>Telefone:</strong> (11) 91234-5678</p>
-      <p><strong>Redes sociais:</strong> @umgenioconfuso</p>
+      <p>Email: contato@umgenioconfuso.com</p>
+      <p>Telefone: (11) 91234-5678</p>
+      <p>Endereço: Rua das Acácias, 123, São Paulo - SP</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-buttons">
+    <button id="footer-btn-loja" class="redirect-btn" aria-label="Ir para Loja">Loja</button>
+    <button id="footer-btn-contato" class="redirect-btn" aria-label="Ir para Contato">Contato</button>
+  </div>
+  <div class="signature">Paganella</div>
+</footer>
+
+<script>
+  // Função para ativar uma seção e desativar outras
+  function activateSection(id) {
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(sec => {
+      if (sec.id === id) {
+        sec.classList.add('active');
+        sec.focus();
+      } else {
+        sec.classList.remove('active');
+      }
+    });
+
+    // Atualiza os botões do nav
+    document.querySelectorAll('nav button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    const btnMap = {
+      home: 'btn-home',
+      loja: 'btn-loja',
+      contato: 'btn-contato',
+    };
+    const btnId = btnMap[id];
+    if (btnId) {
+      document.getElementById(btnId).classList.add('active');
+    }
+  }
+
+  // Botões do nav
+  document.getElementById('btn-home').addEventListener('click', () => activateSection('home'));
+  document.getElementById('btn-loja').addEventListener('click', () => activateSection('loja'));
+  document.getElementById('btn-contato').addEventListener('click', () => activateSection('contato'));
+
+  // Botões do footer
+  document.getElementById('footer-btn-loja').addEventListener('click', () => activateSection('loja'));
+  document.getElementById('footer-btn-contato').addEventListener('click', () => activateSection('contato'));
+</script>
+
+</body>
+</html>
