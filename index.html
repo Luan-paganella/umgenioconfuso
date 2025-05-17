@@ -1,264 +1,266 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Um Gênio Confuso</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #eee;
-    }
-    header {
-      text-align: center;
-      padding: 30px 20px 10px;
-      background-color: #000;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-    header p {
-      margin: 10px 0 20px;
-      font-size: 18px;
-      color: #aaa;
-    }
-    nav {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    nav a {
-      display: inline-block;
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      margin: 5px;
-      text-decoration: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #555;
-    }
-    section {
-      padding: 30px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .produto {
-      background-color: #1a1a1a;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-      color: #eee;
-    }
-    .produto h3 {
-      margin-top: 0;
-      color: #f0f0f0;
-      font-weight: bold;
-      font-size: 24px;
-    }
-    .btn-pagar, .btn-secreto {
-      display: inline-block;
-      background-color: #444;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 5px;
-      text-decoration: none;
-      user-select: none;
-    }
-    .btn-pagar:hover, .btn-secreto:hover {
-      background-color: #666;
-    }
-    .btn-secreto {
-      display: none;
-      margin-left: 10px;
-    }
-    footer {
-      background-color: #000;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .secreta {
-      display: none;
-      background-color: #222;
-      padding: 30px;
-      margin-top: 20px;
-      border-radius: 5px;
-      color: #ddd;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Um Gênio Confuso</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap');
+
+  /* Reset básico */
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #222;
+  }
+  /* Fundo escurecido para melhor contraste */
+  body::before {
+    content: "";
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255 255 255 / 0.85);
+    z-index: -1;
+  }
+
+  header {
+    text-align: center;
+    padding: 25px 10px 10px;
+    background: rgba(255 255 255 / 0.85);
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: 900;
+    color: #333;
+  }
+  header p {
+    margin: 6px 0 18px;
+    font-size: 1.3em;
+    font-style: italic;
+    color: #555;
+  }
+
+  nav {
+    text-align: center;
+    margin-bottom: 30px;
+    background: transparent;
+  }
+  nav button {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: #333;
+    font-size: 1.15em;
+    padding: 12px 28px;
+    margin: 0 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 700;
+  }
+  nav button.active,
+  nav button:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  main {
+    max-width: 860px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+  }
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+
+  /* Produtos */
+  .product {
+    background: #fff;
+    padding: 22px 25px;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    box-shadow: 0 0 12px rgb(0 0 0 / 0.1);
+    color: #333;
+  }
+  .product h3 {
+    margin-top: 0;
+    color: #2e4c2d;
+  }
+  .product p {
+    font-size: 1.05em;
+    line-height: 1.5em;
+    margin-bottom: 12px;
+  }
+  .price {
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #4a7c44;
+  }
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    margin: 8px 10px 0 0;
+    font-weight: 700;
+    transition: 0.3s;
+    color: #fff;
+  }
+  .btn.pix {
+    background-color: #4caf50;
+  }
+  .btn.card {
+    background-color: #388e3c;
+  }
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  /* Botões de redirecionamento no rodapé */
+  footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(255 255 255 / 0.95);
+    box-shadow: 0 -2px 5px rgb(0 0 0 / 0.1);
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    font-size: 0.9em;
+    color: #666;
+    z-index: 100;
+  }
+  footer button {
+    background-color: transparent;
+    border: 2px solid #666;
+    color: #666;
+    padding: 8px 20px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  footer button:hover {
+    background-color: #666;
+    color: #fff;
+  }
+  footer .signature {
+    margin-left: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    user-select: none;
+  }
+
+  /* Área para liberar produtos */
+  .release-panel {
+    background: #e6f0e6;
+    border: 1.5px solid #4a7c44;
+    padding: 16px 22px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #2e4c2d;
+  }
+  .release-panel h3 {
+    margin-top: 0;
+  }
+  .release-panel button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 8px 10px 0 0;
+    transition: background-color 0.3s;
+  }
+  .release-panel button:hover {
+    background-color: #388e3c;
+  }
+
+  /* Botão acesso ao produto */
+  .access-btn {
+    background-color: #2e4c2d;
+    color: #fff;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+    display: inline-block;
+    text-decoration: none;
+  }
+  .access-btn:hover {
+    background-color: #1f331a;
+  }
+
+  /* Contato */
+  .contact-info p {
+    font-size: 1.1em;
+    margin: 12px 0;
+    color: #3a5d3a;
+  }
+
+  /* Nome Vitória Bonatto discreto na loja */
+  .credit {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1em;
+    color: #7a9d7a;
+    opacity: 0.6;
+    text-align: right;
+    margin-top: 20px;
+    user-select: none;
+  }
+
+  /* Campo texto na Home */
+  .home-input {
+    margin-top: 20px;
+  }
+  .home-input label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2e4c2d;
+  }
+  .home-input textarea {
+    width: 100%;
+    min-height: 90px;
+    border-radius: 8px;
+    border: 1.5px solid #4a7c44;
+    padding: 12px;
+    font-size: 1em;
+    resize: vertical;
+  }
+</style>
 </head>
 <body>
 
 <header>
   <h1>Um Gênio Confuso</h1>
-  <p>Pensamentos soltos, ideias geniais e um toque de caos criativo.</p>
+  <p>“Um mundo sobre outro mundo”</p>
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#loja">Loja</a>
+  <button id="btn-home" class="active">Home</button>
+  <button id="btn-loja">Loja</button>
+  <button id="btn-contato">Contato</button>
 </nav>
 
-<section id="home">
-  <h2>Home</h2>
-  <p>Bem-vindo ao meu espaço de ideias confusas e criativas. Em breve, pensamentos serão publicados aqui.</p>
-</section>
+<main>
+  <section id="home" class="active">
+    <h2>Pensamento do Dia</h2>
+    <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
 
-<section id="loja">
-  <h2>Loja</h2>
-
-  <div class="produto" id="produto1">
-    <h3>Livro Marketing Digital Descomplicado</h3>
-    <p>Aprenda marketing digital de forma prática e objetiva.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto1" class="btn-secreto" href="#secreta-produto1">Acessar Conteúdo</a>
-    <div id="secreta-produto1" class="secreta">
-      <h4>Conteúdo Exclusivo - Livro Marketing Digital Descomplicado</h4>
-      <p>Parabéns pela compra! Aqui está o seu material exclusivo.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto2">
-    <h3>Curso SEO para Iniciantes</h3>
-    <p>Domine técnicas básicas de SEO para alavancar seu site.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto2" class="btn-secreto" href="#secreta-produto2">Acessar Conteúdo</a>
-    <div id="secreta-produto2" class="secreta">
-      <h4>Conteúdo Exclusivo - Curso SEO para Iniciantes</h4>
-      <p>Parabéns pela compra! Aproveite o curso exclusivo.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto3">
-    <h3>Guia de Redes Sociais</h3>
-    <p>Estratégias para crescer e engajar no Instagram, Facebook e mais.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto3" class="btn-secreto" href="#secreta-produto3">Acessar Conteúdo</a>
-    <div id="secreta-produto3" class="secreta">
-      <h4>Conteúdo Exclusivo - Guia de Redes Sociais</h4>
-      <p>Parabéns pela compra! Aqui está o seu guia exclusivo.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto4">
-    <h3>Ebook Copywriting Essencial</h3>
-    <p>Aprenda a escrever textos que convertem vendas.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto4" class="btn-secreto" href="#secreta-produto4">Acessar Conteúdo</a>
-    <div id="secreta-produto4" class="secreta">
-      <h4>Conteúdo Exclusivo - Ebook Copywriting Essencial</h4>
-      <p>Parabéns pela compra! Aproveite o ebook exclusivo.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto5">
-    <h3>Treinamento Google Ads</h3>
-    <p>Campanhas eficazes no Google para aumentar suas vendas.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto5" class="btn-secreto" href="#secreta-produto5">Acessar Conteúdo</a>
-    <div id="secreta-produto5" class="secreta">
-      <h4>Conteúdo Exclusivo - Treinamento Google Ads</h4>
-      <p>Parabéns pela compra! Conteúdo exclusivo liberado.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto6">
-    <h3>Workshop Facebook Ads</h3>
-    <p>Aprenda a criar anúncios eficientes no Facebook.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto6" class="btn-secreto" href="#secreta-produto6">Acessar Conteúdo</a>
-    <div id="secreta-produto6" class="secreta">
-      <h4>Conteúdo Exclusivo - Workshop Facebook Ads</h4>
-      <p>Parabéns pela compra! Acesso liberado ao workshop.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto7">
-    <h3>Manual de Email Marketing</h3>
-    <p>Estratégias para campanhas de email que funcionam.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto7" class="btn-secreto" href="#secreta-produto7">Acessar Conteúdo</a>
-    <div id="secreta-produto7" class="secreta">
-      <h4>Conteúdo Exclusivo - Manual de Email Marketing</h4>
-      <p>Parabéns pela compra! Conteúdo exclusivo disponível.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto8">
-    <h3>Consultoria Online</h3>
-    <p>Consultoria personalizada para o seu negócio digital.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto8" class="btn-secreto" href="#secreta-produto8">Acessar Conteúdo</a>
-    <div id="secreta-produto8" class="secreta">
-      <h4>Conteúdo Exclusivo - Consultoria Online</h4>
-      <p>Parabéns pela compra! Entre em contato para agendar.</p>
-    </div>
-  </div>
-
-  <div class="produto" id="produto9">
-    <h3>Pacote Completo Marketing</h3>
-    <p>Todos os cursos e materiais reunidos em um só pacote.</p>
-    <a class="btn-pagar" href="https://mpago.la/1jAQ44t" target="_blank" rel="noopener">Pagar</a>
-    <a id="botao-secreto-produto9" class="btn-secreto" href="#secreta-produto9">Acessar Conteúdo</a>
-    <div id="secreta-produto9" class="secreta">
-      <h4>Conteúdo Exclusivo - Pacote Completo Marketing</h4>
-      <p>Parabéns pela compra! Acesso total liberado.</p>
-    </div>
-  </div>
-
-</section>
-
-<footer>
-  <p>Contato:</p>
-  <p>Email: <a href="mailto:luanpaganella59@gmail.com" style="color:#aaa;">luanpaganella59@gmail.com</a></p>
-  <p>Telefone: <a href="tel:+5551997795994" style="color:#aaa;">(51) 99779-5994</a></p>
-  <p>Endereço: Torres Centro</p>
-</footer>
-
-<script>
-  // Função para mostrar botões secretos e conteúdo conforme parâmetro URL
-  function ativarBotaoSecreto() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const acesso = urlParams.get('acesso'); // Exemplo: acesso=produto3
-
-    if (acesso) {
-      const botaoSecreto = document.getElementById('botao-secreto-' + acesso);
-      const conteudoSecreto = document.getElementById('secreta-' + acesso);
-
-      if (botaoSecreto && conteudoSecreto) {
-        botaoSecreto.style.display = 'inline-block';
-        conteudoSecreto.style.display = 'block';
-
-        // Scroll para o produto automaticamente
-        const produtoSection = document.getElementById(acesso);
-        if (produtoSection) {
-          produtoSection.scrollIntoView({behavior: 'smooth'});
-        }
-      }
-    }
-  }
-
-  ativarBotaoSecreto();
-
-  // Navegação simples para Home e Loja
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if(target) target.scrollIntoView({behavior: 'smooth'});
-    });
-  });
-</script>
-
-</body>
-</html>
+    <h2>Reflexão Aleatória</h2>
+    <p
