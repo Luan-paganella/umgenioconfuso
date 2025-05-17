@@ -243,3 +243,266 @@
         <p class="price">R$ 29,90</p>
         <div class="buttons">
           <a href="https://mpago
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Um Gênio Confuso</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  body {
+    margin: 0; font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #b39ddb;
+    display: flex;
+    height: 100vh;
+  }
+  /* Sidebar */
+  nav {
+    width: 200px;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    box-sizing: border-box;
+  }
+  nav button {
+    background: transparent;
+    border: none;
+    color: #b39ddb;
+    font-size: 1.2em;
+    padding: 15px 20px;
+    text-align: left;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  nav button.active, nav button:hover {
+    border-left: 4px solid #9575cd;
+    background: #2e2e2e;
+  }
+
+  /* Header horizontal top */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: #000;
+    border-bottom: 1px solid #311b92;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: #b39ddb;
+    font-weight: 700;
+    font-size: 1.5em;
+    z-index: 10;
+  }
+  header .title {
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+  }
+  header .title .name {
+    color: #7e57c2;
+    font-weight: 900;
+  }
+  header .title .phrase {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.9em;
+    color: #d1c4e9;
+  }
+
+  /* Main content */
+  main {
+    margin-left: 200px;
+    padding: 80px 30px 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+    box-sizing: border-box;
+  }
+
+  /* Thought styles */
+  .thought {
+    background-color: #1a1a1a;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border-left: 6px solid #9575cd;
+  }
+  .thought h2 {
+    margin-top: 0;
+    color: #d1c4e9;
+  }
+  .thought p {
+    font-size: 1.1em;
+    line-height: 1.4em;
+  }
+
+  /* Store */
+  .store h2 {
+    color: #9575cd;
+    margin-bottom: 25px;
+    font-size: 2em;
+  }
+  .product {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 8px #311b92;
+  }
+  .product h3 {
+    margin-top: 0;
+    color: #b39ddb;
+  }
+  .product p {
+    margin: 10px 0;
+    font-size: 1.05em;
+    color: #ccc;
+  }
+  .product strong {
+    color: #d1c4e9;
+  }
+  .buttons {
+    margin-top: 15px;
+  }
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+  }
+  .btn.pix {
+    background-color: #43a047;
+    color: white;
+  }
+  .btn.card {
+    background-color: #512da8;
+    color: white;
+  }
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  /* Botão secreto admin */
+  #adminBtn {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: #7e57c2;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 15;
+  }
+  /* Botão liberar acesso */
+  #secretAccessBtn {
+    display: none;
+    margin-top: 20px;
+    background-color: #512da8;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title">
+    <div class="name">Um Gênio Confuso</div>
+    <div class="phrase">um mundo sobre outro mundo</div>
+  </div>
+</header>
+
+<nav>
+  <button id="btnHome" class="active" onclick="showSection('home')">Home</button>
+  <button id="btnStore" onclick="showSection('store')">Loja</button>
+</nav>
+
+<main>
+  <!-- Seção Home -->
+  <section id="home" style="display:block;">
+    <div class="thought">
+      <h2>Pensamentos não lidos</h2>
+      <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
+    </div>
+    <div class="thought">
+      <h2>Reflexão Aleatória</h2>
+      <p>Se tudo fizesse sentido, o gênio não teria espaço para se perder. E é na perda que ele se encontra.</p>
+    </div>
+  </section>
+
+  <!-- Seção Loja -->
+  <section id="store" style="display:none;">
+    <h2>📚 Loja</h2>
+
+    <div class="product">
+      <h3>Marketing Digital Descomplicado</h3>
+      <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <div class="buttons">
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <h3>Bitcoin</h3>
+      <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <div class="buttons">
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <h3>Marte</h3>
+      <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <div class="buttons">
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <h3>Dropshipping</h3>
+      <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <div class="buttons">
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <h3>Como se tornar um milionário com a internet</h3>
+      <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário. Com as estratégias certas, disciplina e conhecimento, qualquer pessoa pode aproveitar o poder do mundo digital para alcançar a liberdade financeira.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <div class="buttons">
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn pix">💸 Pagar via Pix</a>
+        <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener noreferrer" class="btn card">💳 Pagar com Cartão</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <h3>Brasil: Terra de diversidade e potencial</h3>
+      <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
+      <p><strong>
+        
