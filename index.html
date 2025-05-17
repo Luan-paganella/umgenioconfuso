@@ -1,248 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Um Gênio Confuso</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap');
-
-  /* Reset básico */
-  body, html {
-    margin: 0; padding: 0; height: 100%;
-    font-family: 'Roboto', sans-serif;
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
-    background-size: cover;
-    color: #222;
-  }
-  /* Fundo escurecido para melhor contraste */
-  body::before {
-    content: "";
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255 255 255 / 0.85);
-    z-index: -1;
-  }
-
-  header {
-    text-align: center;
-    padding: 25px 10px 10px;
-    background: rgba(255 255 255 / 0.85);
-    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 3em;
-    font-weight: 900;
-    color: #333;
-  }
-  header p {
-    margin: 6px 0 18px;
-    font-size: 1.3em;
-    font-style: italic;
-    color: #555;
-  }
-
-  nav {
-    text-align: center;
-    margin-bottom: 30px;
-    background: transparent;
-  }
-  nav button {
-    background-color: transparent;
-    border: 2px solid #333;
-    color: #333;
-    font-size: 1.15em;
-    padding: 12px 28px;
-    margin: 0 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    font-weight: 700;
-  }
-  nav button.active,
-  nav button:hover {
-    background-color: #333;
-    color: #fff;
-  }
-
-  main {
-    max-width: 860px;
-    margin: 0 auto 80px;
-    padding: 0 20px;
-  }
-  section {
-    display: none;
-  }
-  section.active {
-    display: block;
-  }
-
-  /* Produtos */
-  .product {
-    background: #fff;
-    padding: 22px 25px;
-    border-radius: 10px;
-    margin-bottom: 28px;
-    box-shadow: 0 0 12px rgb(0 0 0 / 0.1);
-    color: #333;
-  }
-  .product h3 {
-    margin-top: 0;
-    color: #2e4c2d;
-  }
-  .product p {
-    font-size: 1.05em;
-    line-height: 1.5em;
-    margin-bottom: 12px;
-  }
-  .price {
-    font-weight: 700;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #4a7c44;
-  }
-  .btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-    margin: 8px 10px 0 0;
-    font-weight: 700;
-    transition: 0.3s;
-    color: #fff;
-  }
-  .btn.pix {
-    background-color: #4caf50;
-  }
-  .btn.card {
-    background-color: #388e3c;
-  }
-  .btn:hover {
-    opacity: 0.85;
-  }
-
-  /* Botões de redirecionamento no rodapé */
-  footer {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(255 255 255 / 0.95);
-    box-shadow: 0 -2px 5px rgb(0 0 0 / 0.1);
-    padding: 10px 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    align-items: center;
-    font-size: 0.9em;
-    color: #666;
-    z-index: 100;
-  }
-  footer button {
-    background-color: transparent;
-    border: 2px solid #666;
-    color: #666;
-    padding: 8px 20px;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  footer button:hover {
-    background-color: #666;
-    color: #fff;
-  }
-  footer .signature {
-    margin-left: 30px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.2em;
-    user-select: none;
-  }
-
-  /* Área para liberar produtos */
-  .release-panel {
-    background: #e6f0e6;
-    border: 1.5px solid #4a7c44;
-    padding: 16px 22px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    color: #2e4c2d;
-  }
-  .release-panel h3 {
-    margin-top: 0;
-  }
-  .release-panel button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px 22px;
-    font-weight: 700;
-    border-radius: 6px;
-    cursor: pointer;
-    margin: 8px 10px 0 0;
-    transition: background-color 0.3s;
-  }
-  .release-panel button:hover {
-    background-color: #388e3c;
-  }
-
-  /* Botão acesso ao produto */
-  .access-btn {
-    background-color: #2e4c2d;
-    color: #fff;
-    padding: 10px 22px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 12px;
-    display: inline-block;
-    text-decoration: none;
-  }
-  .access-btn:hover {
-    background-color: #1f331a;
-  }
-
-  /* Contato */
-  .contact-info p {
-    font-size: 1.1em;
-    margin: 12px 0;
-    color: #3a5d3a;
-  }
-
-  /* Nome Vitória Bonatto discreto na loja */
-  .credit {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1em;
-    color: #7a9d7a;
-    opacity: 0.6;
-    text-align: right;
-    margin-top: 20px;
-    user-select: none;
-  }
-
-  /* Campo texto na Home */
-  .home-input {
-    margin-top: 20px;
-  }
-  .home-input label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #2e4c2d;
-  }
-  .home-input textarea {
-    width: 100%;
-    min-height: 90px;
-    border-radius: 8px;
-    border: 1.5px solid #4a7c44;
-    padding: 12px;
-    font-size: 1em;
-    resize: vertical;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Um Gênio Confuso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    header {
+      background-color: rgba(0, 50, 20, 0.8);
+      text-align: center;
+      padding: 20px 10px 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #d8f3dc;
+    }
+    header p {
+      margin: 5px 0 15px;
+      font-size: 1.3em;
+      color: #95d5b2;
+      font-style: italic;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    nav button {
+      background-color: rgba(58, 83, 45, 0.7);
+      border: 2px solid #95d5b2;
+      color: #95d5b2;
+      font-size: 1.1em;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav button.active,
+    nav button:hover {
+      background-color: #95d5b2;
+      color: #003300;
+      border-color: #95d5b2;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+      background-color: rgba(0,50,20,0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    /* Campo para pensamento */
+    .pensamento-label {
+      display: block;
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #d8f3dc;
+      font-weight: 600;
+    }
+    .pensamento-textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      border: 1px solid #95d5b2;
+      resize: vertical;
+      background-color: #e6f0d4;
+      color: #003300;
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Produtos */
+    .product {
+      background-color: rgba(58, 83, 45, 0.85);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      color: #d8f3dc;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .product h3 {
+      margin-top: 0;
+      color: #95d5b2;
+    }
+    .product p {
+      font-size: 1.05em;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin: 10px 10px 0 0;
+      font-weight: bold;
+      transition: 0.3s;
+      color: #003300;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn.pix {
+      background-color: #a7c957;
+    }
+    .btn.card {
+      background-color: #6b8e23;
+    }
+    .btn.access {
+      background-color: #ffd166;
+      color: #003300;
+      margin-left: 15px;
+    }
+    .btn:hover {
+      opacity: 0.8;
+    }
+    /* Rodapé */
+    footer {
+      background-color: rgba(0, 50, 20, 0.9);
+      color: #d8f3dc;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-buttons {
+      flex-grow: 1;
+      text-align: center;
+    }
+    .footer-buttons button {
+      background-color: rgba(87, 140, 71, 0.8);
+      border: 1.5px solid #95d5b2;
+      color: #d8f3dc;
+      font-weight: 600;
+      padding: 8px 18px;
+      margin: 0 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1em;
+    }
+    .footer-buttons button:hover {
+      background-color: #95d5b2;
+      color: #003300;
+      border-color: #95d5b2;
+    }
+    .footer-contact {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1em;
+      color: #a7c957;
+      user-select: none;
+      min-width: 250px;
+      text-align: right;
+    }
+  </style>
 </head>
 <body>
 
@@ -254,13 +187,32 @@
 <nav>
   <button id="btn-home" class="active">Home</button>
   <button id="btn-loja">Loja</button>
-  <button id="btn-contato">Contato</button>
 </nav>
 
 <main>
   <section id="home" class="active">
-    <h2>Pensamento do Dia</h2>
+    <h2>Bem-vindo!</h2>
     <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
 
-    <h2>Reflexão Aleatória</h2>
-    <p
+    <label for="pensamento" class="pensamento-label">Deixe seu pensamento aqui (qual o melhor livro que já leu?):</label>
+    <textarea id="pensamento" class="pensamento-textarea" placeholder="Escreva aqui..."></textarea>
+  </section>
+
+  <section id="loja">
+    <h2>📚 Loja</h2>
+
+    <!-- Produto 1 -->
+    <div class="product">
+      <h3>Marketing Digital Descomplicado</h3>
+      <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <button class="btn access" id="access-btn-1" style="display:none;">Acessar Produto</button>
+    </div>
+
+    <!-- Produto 2 -->
+    <div class="product">
+      <h3>Bitcoin</h3>
+      <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
+      <p><strong>R$ 29,90</
