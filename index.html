@@ -5,117 +5,239 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Um Gênio Confuso</title>
   <style>
+    /* Fonte */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    /* Cores Natureza */
+    :root {
+      --verde-escuro: #2c5d3f;
+      --verde-suave: #497c5a;
+      --marrom: #7b4f24;
+      --bege: #e8d5b7;
+      --verde-clarinho: #a6c48a;
+      --botao-bg: #497c5a;
+      --botao-hover: #2c5d3f;
+      --texto-principal: #2c5d3f;
+    }
+
+    /* Reset e base */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #000000;
-      color: #ff0000; /* vermelho vivo */
+      background: linear-gradient(180deg, #d3e5d0 0%, #a6c48a 100%);
+      color: var(--texto-principal);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* Fundo com galhos e árvores 3D simulados */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      background:
+        url('https://i.ibb.co/xCqJzTJ/galho1.png') no-repeat 5% 15%,
+        url('https://i.ibb.co/n8XXC2N/galho2.png') no-repeat 90% 10%,
+        url('https://i.ibb.co/GTW2MTQ/arvore1.png') no-repeat center bottom;
+      background-size: 120px auto, 150px auto, 400px auto;
+      opacity: 0.15;
+      z-index: 0;
+      mix-blend-mode: multiply;
+    }
+
+    /* Header */
     header {
       text-align: center;
-      padding: 20px 10px 5px;
-      background-color: #000000;
+      padding: 25px 10px 10px;
+      background-color: var(--bege);
+      box-shadow: 0 4px 10px rgba(43, 66, 49, 0.3);
+      position: relative;
+      z-index: 10;
     }
     header h1 {
       margin: 0;
-      font-size: 2.8em;
-      color: #ff0000;
+      font-size: 3em;
+      color: var(--verde-escuro);
+      text-shadow: 1px 1px 1px #9fbf91;
     }
     header p {
-      margin: 5px 0 15px;
-      font-size: 1.2em;
-      color: #ff0000;
+      margin: 5px 0 20px;
+      font-size: 1.3em;
+      color: var(--marrom);
       font-style: italic;
+      text-shadow: 1px 1px 1px #d8d1b0;
     }
+
+    /* Navegação */
     nav {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
+      background-color: var(--bege);
+      padding: 15px 0;
+      box-shadow: 0 2px 8px rgba(43, 66, 49, 0.2);
+      position: relative;
+      z-index: 10;
     }
     nav button {
-      background-color: transparent;
-      border: 2px solid #ff0000;
-      color: #ff0000;
-      font-size: 1.1em;
-      padding: 10px 25px;
-      margin: 0 10px;
-      border-radius: 6px;
+      background-color: var(--botao-bg);
+      border: none;
+      color: var(--bege);
+      font-size: 1.15em;
+      padding: 12px 30px;
+      margin: 0 12px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 3px 5px rgba(39, 78, 52, 0.6);
+      transition: background-color 0.3s, box-shadow 0.3s;
+      font-weight: 700;
+      font-family: 'Roboto', sans-serif;
     }
-    nav button.active,
     nav button:hover {
-      background-color: #ff0000;
-      color: #000;
+      background-color: var(--botao-hover);
+      box-shadow: 0 6px 12px rgba(25, 50, 35, 0.9);
     }
+    nav button.active {
+      background-color: var(--verde-escuro);
+      box-shadow: 0 6px 15px rgba(25, 50, 35, 0.9);
+    }
+
+    /* Conteúdo principal */
     main {
-      max-width: 800px;
-      margin: 0 auto 60px;
+      max-width: 900px;
+      margin: 0 auto 70px;
       padding: 0 20px;
+      position: relative;
+      z-index: 10;
     }
     section {
       display: none;
     }
     section.active {
       display: block;
+      animation: fadeIn 0.7s ease-in-out;
     }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1;}
+    }
+
+    /* Botões de redirecionamento internos */
     .buttons {
-      margin-top: 20px;
+      margin-top: 25px;
       text-align: center;
     }
     .redirect-btn {
-      background-color: transparent;
-      border: 2px solid #ff0000;
-      color: #ff0000;
-      font-weight: bold;
-      padding: 8px 18px;
-      margin: 5px;
-      border-radius: 6px;
+      background-color: var(--botao-bg);
+      border: none;
+      color: var(--bege);
+      font-weight: 700;
+      padding: 10px 24px;
+      margin: 8px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
+      font-size: 1.05em;
+      box-shadow: 0 3px 8px rgba(39, 78, 52, 0.7);
+      transition: background-color 0.3s, box-shadow 0.3s;
+      font-family: 'Roboto', sans-serif;
     }
     .redirect-btn:hover {
-      background-color: #ff0000;
-      color: #000;
+      background-color: var(--botao-hover);
+      box-shadow: 0 6px 15px rgba(25, 50, 35, 0.9);
     }
-    /* Produto e loja */
+
+    /* Loja */
     .product {
-      background-color: #111;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-      color: #ff4444;
+      background-color: #f0f5e8cc;
+      padding: 22px 20px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 6px rgba(50, 80, 45, 0.2);
+      color: var(--verde-escuro);
+      transition: box-shadow 0.3s ease;
+    }
+    .product:hover {
+      box-shadow: 0 5px 20px rgba(50, 80, 45, 0.4);
     }
     .product h3 {
       margin-top: 0;
-      color: #ff6666;
+      color: var(--marrom);
+      font-weight: 700;
+      text-shadow: 0 1px 1px #c1b393aa;
     }
     .product p {
-      font-size: 1.05em;
+      font-size: 1.07em;
+      line-height: 1.4em;
+      margin: 10px 0 15px;
+      color: var(--verde-escuro);
+    }
+    .price {
+      font-weight: 800;
+      font-size: 1.25em;
+      color: var(--marrom);
+      margin-bottom: 12px;
     }
     .btn {
       display: inline-block;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      margin: 10px 10px 0 0;
-      font-weight: bold;
-      transition: 0.3s;
-      color: #000;
+      padding: 10px 22px;
+      border-radius: 25px;
+      margin: 8px 10px 0 0;
+      font-weight: 700;
+      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(39, 78, 52, 0.8);
+      transition: background-color 0.3s ease;
+      color: var(--bege);
+      user-select: none;
     }
     .btn.pix {
-      background-color: #ff4d4d;
+      background-color: #4a7c3a;
     }
     .btn.card {
-      background-color: #cc0000;
+      background-color: #35692e;
     }
-    .btn:hover {
-      opacity: 0.8;
+    .btn.pix:hover {
+      background-color: #2c5d1f;
+      box-shadow: 0 6px 14px rgba(25, 40, 15, 0.9);
     }
+    .btn.card:hover {
+      background-color: #1f4111;
+      box-shadow: 0 6px 14px rgba(10, 25, 5, 0.9);
+    }
+
     /* Contato */
     .contact-info p {
-      font-size: 1.1em;
-      margin: 10px 0;
-      color: #ff6666;
+      font-size: 1.15em;
+      margin: 14px 0;
+      color: var(--verde-escuro);
+      font-weight: 600;
+    }
+    .contact-info strong {
+      color: var(--marrom);
+      font-weight: 700;
+      text-shadow: 1px 1px 0 #c1b393bb;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      nav button {
+        padding: 10px 15px;
+        margin: 5px 8px;
+        font-size: 1em;
+      }
+      main {
+        padding: 0 15px;
+      }
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.95em;
+      }
     }
   </style>
 </head>
@@ -133,6 +255,7 @@
 </nav>
 
 <main>
+  <!-- HOME -->
   <section id="home" class="active">
     <h2>Pensamento do Dia</h2>
     <p>Às vezes, as ideias mais brilhantes nascem da confusão. Não subestime o caos interno — ele pode esconder genialidade.</p>
@@ -146,13 +269,14 @@
     </div>
   </section>
 
+  <!-- LOJA -->
   <section id="loja">
     <h2>📚 Loja</h2>
 
     <div class="product">
       <h3>Marketing Digital Descomplicado</h3>
       <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
-      <p><strong>R$ 29,90</strong></p>
+      <p class="price">R$ 29,90</p>
       <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
       <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
@@ -160,7 +284,7 @@
     <div class="product">
       <h3>Bitcoin</h3>
       <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-      <p><strong>R$ 29,90</strong></p>
+      <p class="price">R$ 29,90</p>
       <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
       <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
@@ -168,118 +292,11 @@
     <div class="product">
       <h3>Marte</h3>
       <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
-      <p><strong>R$ 29,90</strong></p>
+      <p class="price">R$ 29,90</p>
       <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
       <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Dropshipping</h3>
-      <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Como se tornar um milionário com a internet</h3>
-      <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário. Com as estratégias certas, disciplina e conhecimento, qualquer pessoa pode aproveitar o poder do mundo digital para alcançar a liberdade financeira.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Brasil: Terra de diversidade e potencial</h3>
-      <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="buttons">
-      <button class="redirect-btn" onclick="showSection('home')">Ir para Home</button>
-      <button class="redirect-btn" onclick="showSection('contato')">Ir para Contato</button>
-    </div>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <div class="contact-info">
-      <p><strong>Email:</strong> luanpaganella59@gmail.com</p>
-      <p><strong>Telefone:</strong> 51 99779-5994</p>
-      <p><strong>Estado:</strong> Rio Grande do Sul</p>
-    </div>
-
-    <div class="buttons">
-      <button class="redirect-btn" onclick="showSection('home')">Ir para Home</button>
-      <button class="redirect-btn" onclick="showSection('loja')">Ir para Loja</button>
-    </div>
-  </section>
-</main>
-
-<script>
-  const btnHome = document.getElementById('btn-home');
-  const btnLoja = document.getElementById('btn-loja');
-  const btnContato = document.getElementById('btn-contato');
-  const sections = {
-    home: document.getElementById('home'),
-    loja: document.getElementById('loja'),
-    contato: document.getElementById('contato')
-  };
-
-  function setActiveButton(activeBtn) {
-    [btnHome, btnLoja, btnContato].forEach(btn => {
-      btn.classList.remove('active');
-    });
-    activeBtn.classList.add('active');
-  }
-
-  function showSection(sectionName) {
-    for (const key in sections) {
-      if (key === sectionName) {
-        sections[key].classList.add('active');
-      } else {
-        sections[key].classList.remove('active');
-      }
-    }
-    // Atualiza os botões do menu principal
-    if(sectionName === 'home') setActiveButton(btnHome);
-    else if(sectionName === 'loja') setActiveButton(btnLoja);
-    else if(sectionName === 'contato') setActiveButton(btnContato);
-    window.scrollTo(0,0);
-  }
-
-  btnHome.addEventListener('click', () => showSection('home'));
-  btnLoja.addEventListener('click', () => showSection('loja'));
-  btnContato.addEventListener('click', () => showSection('contato'));
-
-  // Inicializa na Home
-  showSection('home');
-</script>
-
-</body>
-</html>
-<div class="product">
-  <h3>Bitcoin</h3>
-  <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-  <p><strong>R$ 29,90</strong></p>
-  <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-  <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-</div>
-
-<div class="product">
-  <h3>Marte</h3>
-  <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
-  <p><strong>R$ 29,90</strong></p>
-  <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-  <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-</div>
-
-<div class="product">
-  <h3>Dropshipping</h3>
-  <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
-  <p><strong>R$ 29,90</strong></p>
-  <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
-  <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
-</div>
+      <p>D
