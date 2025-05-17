@@ -5,221 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Um Gênio Confuso</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-    /* Reset e base */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: #fefefe;
-      color: #222;
+      background-color: #fff; /* branco */
+      color: #222; /* texto escuro */
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80'); /* moça lendo livro elegante */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
-
     header {
-      background: #fff;
-      padding: 20px 15px 10px;
       text-align: center;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-      position: relative;
-      overflow: hidden;
+      padding: 20px 10px 10px;
+      background-color: rgba(255,255,255,0.9);
     }
     header h1 {
       margin: 0;
-      font-size: 3rem;
-      color: #3a3a8e; /* tom principal elegante */
-      font-weight: 700;
+      font-size: 2.8em;
+      color: #333;
     }
     header p {
-      margin: 6px 0 20px;
-      font-size: 1.3rem;
+      margin: 5px 0 15px;
+      font-size: 1.2em;
+      color: #555;
       font-style: italic;
-      color: #5a5a9e;
     }
-
-    /* Imagem elegante da moça lendo livro no header */
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; right: 0;
-      width: 250px; height: 100%;
-      background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=300&q=80') no-repeat center/cover;
-      opacity: 0.85;
-      border-bottom-left-radius: 80px;
-      pointer-events: none;
-      user-select: none;
-    }
-
     nav {
-      display: flex;
-      justify-content: center;
-      background: #f0f0ff;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-      gap: 15px;
-      padding: 15px 10px;
-      z-index: 10;
-      position: sticky;
-      top: 0;
+      text-align: center;
+      margin-bottom: 20px;
+      background-color: rgba(255,255,255,0.85);
+      padding: 10px 0;
     }
     nav button {
-      background: transparent;
-      border: 2px solid #3a3a8e;
-      color: #3a3a8e;
-      font-size: 1.15rem;
-      padding: 10px 28px;
-      border-radius: 8px;
-      font-weight: 600;
+      background-color: transparent;
+      border: 2px solid #6b4c3b; /* tom terroso */
+      color: #6b4c3b;
+      font-size: 1.1em;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: background-color 0.3s, color 0.3s;
     }
-    nav button:hover,
-    nav button.active {
-      background: #3a3a8e;
-      color: white;
-      border-color: #2a2a6e;
+    nav button.active,
+    nav button:hover {
+      background-color: #6b4c3b;
+      color: #fff;
     }
-
     main {
       flex: 1;
-      max-width: 900px;
-      margin: 30px auto 100px;
-      padding: 0 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      background-color: rgba(255,255,255,0.85);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(107,76,59,0.3);
     }
-
     section {
       display: none;
-      animation: fadeIn 0.4s ease forwards;
     }
     section.active {
       display: block;
     }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    /* Conteúdo Home */
-    #home p {
-      font-size: 1.15rem;
-      line-height: 1.5;
-      color: #444;
-      margin-bottom: 1.6em;
-    }
-
-    /* Loja */
     .product {
-      background: #f9f9ff;
-      border: 1px solid #d4d4f0;
-      border-radius: 10px;
-      padding: 20px 25px;
+      background-color: #f9f5f0;
+      padding: 20px;
+      border-radius: 8px;
       margin-bottom: 30px;
-      box-shadow: 0 2px 6px rgb(58 58 142 / 0.15);
-      color: #333366;
+      color: #6b4c3b;
+      box-shadow: 0 2px 8px rgba(107,76,59,0.15);
     }
     .product h3 {
       margin-top: 0;
-      color: #3a3a8e;
+      color: #5a3e2b;
     }
     .product p {
-      font-size: 1rem;
-      margin-bottom: 12px;
-      color: #4a4a7a;
-    }
-    .product strong {
-      font-size: 1.15rem;
-      color: #222244;
+      font-size: 1.05em;
     }
     .btn {
       display: inline-block;
       text-decoration: none;
       padding: 10px 20px;
       border-radius: 6px;
-      margin-right: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      user-select: none;
-      transition: background-color 0.3s ease;
-      color: white;
+      margin: 10px 10px 0 0;
+      font-weight: bold;
+      transition: 0.3s;
+      color: #fff;
     }
     .btn.pix {
-      background-color: #5656d6; /* tom principal */
-    }
-    .btn.pix:hover {
-      background-color: #3b3bb0;
+      background-color: #8b0000; /* vermelho escuro */
     }
     .btn.card {
-      background-color: #2f2fa8;
+      background-color: #b22222; /* vermelho mais claro */
     }
-    .btn.card:hover {
-      background-color: #1a1a70;
+    .btn:hover {
+      opacity: 0.8;
     }
-
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .redirect-btn {
+      background-color: transparent;
+      border: 2px solid #6b4c3b;
+      color: #6b4c3b;
+      font-weight: bold;
+      padding: 8px 18px;
+      margin: 0 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      display: inline-block;
+    }
+    .redirect-btn:hover {
+      background-color: #6b4c3b;
+      color: #fff;
+    }
     /* Contato */
     .contact-info p {
-      font-size: 1.15rem;
-      color: #444;
-      margin-bottom: 10px;
+      font-size: 1.1em;
+      margin: 10px 0;
+      color: #6b4c3b;
     }
-
-    /* Rodapé com botões e assinatura */
     footer {
-      background: #f0f0ff;
-      box-shadow: 0 -2px 6px rgb(0 0 0 / 0.1);
-      padding: 12px 10px;
+      background-color: rgba(255,255,255,0.9);
+      padding: 8px 0;
       text-align: center;
-      color: #3a3a8e;
+      color: #6b4c3b;
       font-weight: 600;
+      box-shadow: 0 -2px 10px rgba(107,76,59,0.1);
       position: fixed;
-      bottom: 0;
       width: 100%;
+      bottom: 0;
+      left: 0;
       display: flex;
       justify-content: center;
+      gap: 15px;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      z-index: 20;
+      font-size: 0.95em;
+      z-index: 1000;
     }
     footer button {
-      background: transparent;
-      border: 2px solid #3a3a8e;
-      color: #3a3a8e;
-      font-size: 1rem;
-      padding: 8px 24px;
-      border-radius: 8px;
+      background-color: transparent;
+      border: 2px solid #6b4c3b;
+      color: #6b4c3b;
       font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: background-color 0.3s, color 0.3s;
     }
     footer button:hover {
-      background: #3a3a8e;
-      color: white;
-      border-color: #2a2a6e;
-    }
-    footer .signature {
-      font-style: italic;
-      font-weight: 500;
-      user-select: none;
-      white-space: nowrap;
-    }
-
-    /* Responsividade */
-    @media (max-width: 700px) {
-      header::after {
-        display: none;
-      }
-      nav {
-        flex-direction: column;
-      }
-      footer {
-        flex-direction: column;
-        gap: 10px;
-      }
-      main {
-        margin-bottom: 140px;
-      }
+      background-color: #6b4c3b;
+      color: #fff;
     }
   </style>
 </head>
@@ -248,131 +190,50 @@
   <section id="loja">
     <h2>📚 Loja</h2>
 
+    <!-- Produtos - 9 ao total -->
+
     <div class="product">
       <h3>Marketing Digital Descomplicado</h3>
       <p>O marketing digital revolucionou a forma como marcas e pessoas se conectam. Hoje, não basta estar na internet — é preciso ser encontrado, gerar valor e vender. Este livro é um guia prático para quem quer entender e aplicar o marketing digital de verdade, mesmo começando do zero.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
       <h3>Bitcoin</h3>
       <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
-      <h3>Investimento</h3>
-      <p>Investir não é apenas uma palavra da moda, é uma necessidade para construir riqueza e segurança financeira. Conheça os princípios fundamentais para investir com segurança e inteligência.</p>
+      <h3>Marte</h3>
+      <p>Marte é o quarto planeta a partir do Sol e um dos corpos celestes mais estudados do nosso sistema solar. Conhecido como o “Planeta Vermelho” devido à sua superfície rica em óxido de ferro, que lhe confere uma coloração avermelhada, Marte tem fascinado cientistas, astrônomos e exploradores por séculos.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
-      <h3>Blockchain</h3>
-      <p>Descubra como a tecnologia blockchain está mudando a forma como fazemos transações e como ela pode impactar o futuro das finanças e da internet.</p>
+      <h3>Dropshipping</h3>
+      <p>Dropshipping é um modelo de negócio no comércio eletrônico onde o vendedor não precisa manter um estoque físico dos produtos que oferece. Em vez disso, quando uma venda é realizada, o produto é comprado diretamente de um fornecedor terceirizado, que se responsabiliza pelo armazenamento, embalagem e envio ao cliente final.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
-      <h3>Educação Financeira</h3>
-      <p>Um guia completo para organizar suas finanças pessoais, sair do vermelho e começar a construir seu patrimônio com consciência e planejamento.</p>
+      <h3>Como se tornar um milionário com a internet</h3>
+      <p>A internet revolucionou a forma como criamos oportunidades e geramos riqueza. Hoje, não é preciso esperar anos ou depender de um emprego tradicional para construir um patrimônio milionário. Com as estratégias certas, disciplina e conhecimento, qualquer pessoa pode aproveitar o poder do mundo digital para alcançar a liberdade financeira.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C8AxnW" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
     </div>
 
     <div class="product">
-      <h3>Marketing de Conteúdo</h3>
-      <p>Aprenda a criar conteúdos que atraem, engajam e convertem, transformando seguidores em clientes fiéis.</p>
+      <h3>Brasil: Terra de diversidade e potencial</h3>
+      <p>O Brasil é um país de contrastes vibrantes e riquezas inesgotáveis. Com uma extensão territorial continental, é lar da maior floresta tropical do mundo, uma biodiversidade única e uma população multicultural que reflete séculos de história, imigração e mistura de povos.</p>
       <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>SEO Descomplicado</h3>
-      <p>Otimize seu site e seu conteúdo para aparecer nas primeiras posições do Google e aumente sua visibilidade orgânica.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Redes Sociais para Negócios</h3>
-      <p>Domine as principais redes sociais para impulsionar sua marca, aumentar seu alcance e fidelizar clientes.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
-    </div>
-
-    <div class="product">
-      <h3>Copywriting para Vendas</h3>
-      <p>Aprenda técnicas para escrever textos que vendem, despertam desejo e motivam a ação do seu público.</p>
-      <p><strong>R$ 29,90</strong></p>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn pix">💸 Pagar via Pix</a>
-      <a href="https://mpago.la/1C8AxnW" target="_blank" rel="noopener" class="btn card">💳 Pagar com Cartão</a>
-    </div>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <div class="contact-info">
-      <p><strong>Email:</strong> contato@umgenioconfuso.com</p>
-      <p><strong>Telefone:</strong> (11) 99999-9999</p>
-      <p><strong>Endereço:</strong> Rua das Ideias, 123 - São Paulo, SP</p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <button id="ftr-btn-home">Home</button>
-  <button id="ftr-btn-loja">Loja</button>
-  <button id="ftr-btn-contato">Contato</button>
-  <span class="signature">Paganella</span>
-</footer>
-
-<script>
-  // Navegação topo e rodapé
-  const sections = {
-    home: document.getElementById('home'),
-    loja: document.getElementById('loja'),
-    contato: document.getElementById('contato')
-  };
-
-  // Botões topo
-  const btnHome = document.getElementById('btn-home');
-  const btnLoja = document.getElementById('btn-loja');
-  const btnContato = document.getElementById('btn-contato');
-
-  // Botões rodapé
-  const ftrBtnHome = document.getElementById('ftr-btn-home');
-  const ftrBtnLoja = document.getElementById('ftr-btn-loja');
-  const ftrBtnContato = document.getElementById('ftr-btn-contato');
-
-  function showSection(name) {
-    for (const key in sections) {
-      sections[key].classList.remove('active');
-    }
-    sections[name].classList.add('active');
-
-    // Atualiza topo
-    [btnHome, btnLoja, btnContato].forEach(btn => btn.classList.remove('active'));
-    if (name === 'home') btnHome.classList.add('active');
-    else if (name === 'loja') btnLoja.classList.add('active');
-    else if (name === 'contato') btnContato.classList.add('active');
-
-    // Atualiza rodapé
-    [ftrBtnHome, ftrBtnLoja, ftrBtnContato].forEach(btn => btn.classList.remove('active'));
-    if (name === 'home') ftrBtnHome.classList.add('active');
-    else if (name === 'loja') ftrBtnLoja.classList.add('active');
-    else if (name === 'contato') ftrBtnContato.classList.add('active');
-  }
-
-  btnHome.onclick
+      <a href="https://mpago.la/1C8AxnW" class="btn pix" target="_blank" rel="noopener noreferrer
