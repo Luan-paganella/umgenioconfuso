@@ -215,4 +215,71 @@
     <div class="product">
       <h3>Bitcoin</h3>
       <p>O Bitcoin é muito mais do que apenas uma moeda digital: ele representa uma revolução no conceito de dinheiro, finanças e tecnologia. Desde sua criação em 2009, o Bitcoin tem atraído milhões de pessoas ao redor do mundo, seja como meio de pagamento, investimento ou símbolo de liberdade financeira.</p>
-      <p><strong>R$ 29,90</
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C9DnUr" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C9DnUr" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <button class="btn access" id="access-btn-2" style="display:none;">Acessar Produto</button>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="product">
+      <h3>Metaverso</h3>
+      <p>O Metaverso é uma evolução das interações digitais, trazendo experiências imersivas e conectadas em tempo real. Conheça como essa tecnologia transformará nossas vidas e negócios.</p>
+      <p><strong>R$ 29,90</strong></p>
+      <a href="https://mpago.la/1C7DAoX" class="btn pix" target="_blank" rel="noopener noreferrer">💸 Pagar via Pix</a>
+      <a href="https://mpago.la/1C7DAoX" class="btn card" target="_blank" rel="noopener noreferrer">💳 Pagar com Cartão</a>
+      <button class="btn access" id="access-btn-3" style="display:none;">Acessar Produto</button>
+    </div>
+
+    <!-- Produtos 4 a 9, mantenha conforme seu código original -->
+  </section>
+</main>
+
+<footer>
+  <div class="footer-buttons">
+    <button id="footer-btn-home">Home</button>
+    <button id="footer-btn-loja">Loja</button>
+  </div>
+  <div class="footer-contact">
+    Contato: contato@umgenioconfuso.com | Tel: (11) 99999-9999<br/>
+    <small style="font-family:'Dancing Script', cursive; font-size:1.2em; color:#a7c957;">Vitória Bonatto</small>
+  </div>
+</footer>
+
+<script>
+  // Selecionar elementos
+  const btnHome = document.getElementById('btn-home');
+  const btnLoja = document.getElementById('btn-loja');
+  const footerBtnHome = document.getElementById('footer-btn-home');
+  const footerBtnLoja = document.getElementById('footer-btn-loja');
+
+  const sectionHome = document.getElementById('home');
+  const sectionLoja = document.getElementById('loja');
+
+  function showSection(sectionToShow) {
+    if(sectionToShow === 'home') {
+      sectionHome.classList.add('active');
+      sectionLoja.classList.remove('active');
+      btnHome.classList.add('active');
+      btnLoja.classList.remove('active');
+      footerBtnHome.classList.add('active');
+      footerBtnLoja.classList.remove('active');
+    } else if(sectionToShow === 'loja') {
+      sectionHome.classList.remove('active');
+      sectionLoja.classList.add('active');
+      btnHome.classList.remove('active');
+      btnLoja.classList.add('active');
+      footerBtnHome.classList.remove('active');
+      footerBtnLoja.classList.add('active');
+    }
+  }
+
+  // Eventos para navegação
+  btnHome.addEventListener('click', () => showSection('home'));
+  btnLoja.addEventListener('click', () => showSection('loja'));
+  footerBtnHome.addEventListener('click', () => showSection('home'));
+  footerBtnLoja.addEventListener('click', () => showSection('loja'));
+</script>
+
+</body>
+</html>
